@@ -28,7 +28,7 @@
         .security-card strong { color: var(--blue); display: block; margin-bottom: 10px; }
 
         .report-section { border: 1px solid var(--neon); padding: 25px; margin: 40px 0; background: rgba(0,20,0,0.5); }
-        .report-list { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; padding: 0; }
+        .report-list { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; padding: 0; margin-top: 20px;}
         .report-list li { background: var(--dim); padding: 5px 15px; border: 1px solid var(--neon); font-size: 0.85rem; }
 
         .critical-alert { border: 3px double var(--warn); padding: 35px; background: rgba(60, 0, 0, 0.8); margin: 40px 0; position: relative; }
@@ -38,7 +38,8 @@
         .highlight { color: #fff; font-weight: bold; }
         .link { color: var(--blue); text-decoration: underline; cursor: pointer; }
         
-        .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; }
+        .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; margin-bottom: 20px; }
+        .abuse-box { text-align: center; border: 1px solid var(--dim); padding: 20px; background: rgba(0,255,0,0.05); }
         .blink { animation: blinker 1.5s linear infinite; }
         @keyframes blinker { 50% { opacity: 0.3; } }
         @media (max-width: 768px) { .security-grid { grid-template-columns: 1fr; } .wrapper { padding: 20px; } }
@@ -61,7 +62,7 @@
         </div>
 
         <h1 id="txt-main-title">TRIVO CHAT: PRIVACY ARCHITECTURE</h1>
-        <p class="doc-sub" id="txt-doc-sub">Global Standard // Version 2.2.0 // Update: April 2026</p>
+        <p class="doc-sub" id="txt-doc-sub">Global Standard for Decentralized Communication // Version 2.2.0 (2026)</p>
 
         <h2 id="txt-h2-1">I. CORE ARCHITECTURAL SECURITY</h2>
         <p id="txt-p1"></p>
@@ -92,7 +93,7 @@
         <h3 id="txt-h3-2">Account Deletion</h3>
         <p id="txt-deletion"></p>
 
-        <h3 id="txt-h3-3">Panic Trigger</h3>
+        <h3 id="txt-h3-3">Panic Trigger (Instant Wipe)</h3>
         <p id="txt-panic"></p>
 
         <h2 id="txt-h2-4">IV. ADS & COOKIES (ADMOB)</h2>
@@ -111,9 +112,14 @@
         <h3 id="txt-h3-7">External Links</h3>
         <p id="txt-links"></p>
 
+        <h3 id="txt-h3-8">Policy Updates</h3>
+        <p id="txt-updates"></p>
+
         <div class="footer" id="txt-footer"></div>
-        <div style="text-align:center; margin-top:20px; color:var(--blue); font-size:0.8rem;">
-            Contact: <span class="highlight">trivo.support@proton.me</span>
+        
+        <div class="abuse-box">
+            <span style="color: var(--blue); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Abuse & Support Official Contact:</span><br>
+            <span class="highlight" style="font-size: 1.2rem; color: #fff; text-shadow: 0 0 10px var(--neon);">trivo.support@proton.me</span>
         </div>
     </div>
 
@@ -123,61 +129,63 @@
                 "txt-layer": "Security Layer: OMNI-REDUNDANT",
                 "txt-node": "Node Status: ACTIVE",
                 "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard for Decentralized Communication // v2.2.0 (2026)",
+                "txt-doc-sub": "Global Standard // v2.2.0 // Last Update: April 2026",
                 "txt-h2-1": "I. CORE ARCHITECTURAL SECURITY",
-                "txt-p1": "Trivo Chat is a <span class='highlight'>Decentralized Protocol</span>. We classify your Peer-ID as pseudonymized technical information. We do not link this ID to your name or phone number.",
-                "card-t1": "01. P2P Handshake", "card-d1": "Direct device-to-device encrypted connections.",
-                "card-t2": "02. Quantum Protection", "card-d2": "End-to-End encryption prevents interception at relay nodes.",
-                "card-t3": "03. Zero-Knowledge", "card-d3": "Developers have 0% access to your identity or data packets.",
-                "card-t4": "04. Screen Shield", "card-d4": "Built-in protection against unauthorized screenshots in private chats.",
-                "txt-h2-2": "II. USER-GENERATED CONTENT (UGC)",
-                "txt-p2": "To comply with safety standards, users can flag peers for:",
-                "report-items": ["01. Spam", "02. Bullying", "03. Child Safety", "04. Extremism", "05. Hate Speech", "06. Other"],
+                "txt-p1": "Trivo Chat is a <span class='highlight'>Decentralized Protocol</span>. We classify your Peer-ID as pseudonymized technical information. We do not link this ID to your real name, phone number, or email.",
+                "card-t1": "01. P2P Handshake", "card-d1": "Connections are established directly between devices. No central authority to intercept traffic.",
+                "card-t2": "02. End-to-End Encryption", "card-d2": "All data packets are encrypted. Interception at relay nodes is technically impossible.",
+                "card-t3": "03. Zero-Knowledge", "card-d3": "Developers have 0% access to your identity or data. Identity is a cryptographic hash.",
+                "card-t4": "04. Screen Shield", "card-d4": "Built-in protection against unauthorized screenshots in sensitive chats.",
+                "txt-h2-2": "II. USER-GENERATED CONTENT (UGC) & REPORTING",
+                "txt-p2": "To comply with international safety standards, users can flag peers for violating safety standards:",
+                "report-items": ["01. Spam & Scams", "02. Harassment", "03. Child Safety", "04. Extremism", "05. Hate Speech", "06. Other"],
                 "txt-crit-tag": "ZERO TOLERANCE",
-                "txt-crit-p1": "Immediate Peer-ID ban for Child Exploitation or Terrorism promotion.",
-                "txt-crit-note": "*Executed at node level; device ID becomes technically blacklisted.",
+                "txt-crit-p1": "Immediate and permanent Peer-ID blacklisting for Child Exploitation (Priority 3) or Extremism (Priority 4).",
+                "txt-crit-note": "*Sanctions executed at node level; re-entry is technically impossible for the flagged device ID.",
                 "txt-h2-3": "III. DATA MANAGEMENT & DELETION",
-                "txt-retention": "We do not store messages on servers. Messages exist only in your device's encrypted local database. Deleting the app wipes all data permanently.",
-                "txt-deletion": "Account Deletion: As a P2P system, deleting the app is technically equivalent to a full account deletion.",
-                "txt-panic": "Panic Trigger: Instantly overwrites local keys, making forensic recovery impossible.",
+                "txt-retention": "We do not store messages on servers. All communications exist only in the temporary memory of the devices or your encrypted local database. Deleting the app wipes all data permanently.",
+                "txt-deletion": "Account Deletion: In a decentralized system, deleting the application is technically equivalent to full account and data deletion.",
+                "txt-panic": "Panic Trigger: Instantly overwrites local encryption keys, rendering forensic recovery impossible.",
                 "txt-h2-4": "IV. ADS & COOKIES (ADMOB)",
-                "txt-admob": "We use Google AdMob. It may use cookies and Advertising IDs. Review the <a href='https://policies.google.com/privacy' class='link'>Google Privacy & Terms</a>.",
+                "txt-admob": "Trivo Chat uses Google AdMob for monetization. AdMob may collect Advertising IDs and use cookies. Review the official <a href='https://policies.google.com/privacy' class='link' target='_blank'>Google Privacy & Terms</a>.",
                 "txt-h2-5": "V. LEGAL COMPLIANCE",
                 "txt-age": "Service for users 13+ (16+ in EU). We do not knowingly collect data from minors.",
-                "txt-rights": "Users have rights to access/delete data, managed locally by deleting the application.",
-                "txt-law": "We comply with legal requests, but due to Zero-Knowledge, we cannot provide decrypted content.",
-                "txt-links": "We are not responsible for privacy on external sites linked within chats.",
-                "txt-footer": "LAST UPDATE: APRIL 2026 // TRV-X-PROTOCOL // TRIVO SECURE SYSTEMS"
+                "txt-rights": "Users have rights to access and delete data, managed locally by removing the application.",
+                "txt-law": "We comply with legal requests, but due to Zero-Knowledge architecture, we cannot provide decrypted content or keys.",
+                "txt-links": "We are not responsible for the privacy policies or content of external sites linked within chats.",
+                "txt-updates": "We reserve the right to update this protocol. Continued use of the app constitutes acceptance of the new terms.",
+                "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // EST. BY TRIVO SECURE SYSTEMS"
             },
             ru: {
                 "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
                 "txt-node": "Статус узла: АКТИВЕН",
                 "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт децентрализованной связи // v2.2.0 (2026)",
+                "txt-doc-sub": "Глобальный стандарт // v2.2.0 // Обновлено: Апрель 2026",
                 "txt-h2-1": "I. ОСНОВНАЯ АРХИТЕКТУРНАЯ БЕЗОПАСНОСТЬ",
-                "txt-p1": "Trivo Chat — это <span class='highlight'>Децентрализованный Протокол</span>. Мы классифицируем ваш Peer-ID как псевдонимную техническую информацию и не связываем его с вашим именем или телефоном.",
-                "card-t1": "01. P2P Handshake", "card-d1": "Прямые зашифрованные соединения между устройствами.",
-                "card-t2": "02. Защита передачи", "card-d2": "End-to-End шифрование исключает расшифровку на промежуточных узлах.",
-                "card-t3": "03. Zero-Knowledge", "card-d3": "У разработчиков 0% технического доступа к вашим данным.",
-                "card-t4": "04. Защита экрана", "card-d4": "Встроенная функция защиты от создания скриншотов (Screen Shield).",
-                "txt-h2-2": "II. ПОЛЬЗОВАТЕЛЬСКИЙ КОНТЕНТ (UGC)",
-                "txt-p2": "Для соблюдения безопасности пользователи могут подать жалобу на:",
-                "report-items": ["01. Спам", "02. Травля", "03. Детская безопасность", "04. Экстремизм", "05. Язык вражды", "06. Другое"],
+                "txt-p1": "Trivo Chat — это <span class='highlight'>Децентрализованный Протокол</span>. Мы классифицируем ваш Peer-ID как псевдонимную техническую информацию и не связываем его с вашим именем или номером телефона.",
+                "card-t1": "01. P2P Handshake", "card-d1": "Соединения устанавливаются напрямую между устройствами. Нет центрального узла для перехвата трафика.",
+                "card-t2": "02. E2E Шифрование", "card-d2": "Все пакеты данных зашифрованы. Перехват на узлах-ретрансляторах технически невозможен.",
+                "card-t3": "03. Zero-Knowledge", "card-d3": "У разработчиков 0% технического доступа к вашим данным. Ваш ID — это криптографический хэш.",
+                "card-t4": "04. Защита экрана", "card-d4": "Встроенная защита от создания скриншотов в конфиденциальных чатах (Screen Shield).",
+                "txt-h2-2": "II. ПОЛЬЗОВАТЕЛЬСКИЙ КОНТЕНТ (UGC) И ЖАЛОБЫ",
+                "txt-p2": "Для соблюдения стандартов безопасности пользователи могут пожаловаться на нарушение:",
+                "report-items": ["01. Спам и мошенничество", "02. Травля", "03. Детская безопасность", "04. Экстремизм", "05. Язык вражды", "06. Другое"],
                 "txt-crit-tag": "НУЛЕВАЯ ТЕРПИМОСТЬ",
-                "txt-crit-p1": "Мгновенный бан Peer-ID за эксплуатацию несовершеннолетних или пропаганду терроризма.",
-                "txt-crit-note": "*Санкции исполняются на уровне узла; ID устройства заносится в черный список.",
+                "txt-crit-p1": "Мгновенная блокировка Peer-ID за эксплуатацию несовершеннолетних (Приор. 3) или пропаганду экстремизма (Приор. 4).",
+                "txt-crit-note": "*Санкции исполняются на уровне узла; повторный вход для ID устройства технически невозможен.",
                 "txt-h2-3": "III. УПРАВЛЕНИЕ ДАННЫМИ И УДАЛЕНИЕ",
-                "txt-retention": "Мы не храним переписку на серверах. Все сообщения находятся только в зашифрованной локальной базе вашего телефона. Удаление приложения стирает данные безвозвратно.",
-                "txt-deletion": "Удаление аккаунта: В P2P-системе удаление приложения с устройства эквивалентно полному удалению аккаунта.",
-                "txt-panic": "Panic Trigger: Мгновенное затирание локальных ключей шифрования.",
+                "txt-retention": "Мы не храним переписку на серверах. Сообщения существуют только в памяти устройств или в зашифрованной локальной базе вашего телефона. Удаление приложения стирает всё безвозвратно.",
+                "txt-deletion": "Удаление аккаунта: В децентрализованной системе удаление приложения эквивалентно полному удалению аккаунта и данных.",
+                "txt-panic": "Panic Trigger: Мгновенное затирание локальных ключей шифрования, делающее восстановление невозможным.",
                 "txt-h2-4": "IV. РЕКЛАМА И COOKIE (ADMOB)",
-                "txt-admob": "Мы используем Google AdMob. Он может использовать файлы cookie и рекламные ID. Ознакомьтесь с <a href='https://policies.google.com/privacy' class='link'>Правилами Google</a>.",
+                "txt-admob": "Trivo Chat использует Google AdMob для монетизации. AdMob может собирать рекламные ID и куки. Ознакомьтесь с <a href='https://policies.google.com/privacy' class='link' target='_blank'>Правилами Google</a>.",
                 "txt-h2-5": "V. ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ",
-                "txt-age": "Сервис для лиц 13+ (16+ в некоторых странах). Мы не собираем данные несовершеннолетних.",
-                "txt-rights": "Права на доступ и удаление данных реализуются пользователем через удаление приложения.",
-                "txt-law": "Мы соблюдаем законы, но технически не можем предоставить переписку властям из-за отсутствия ключей.",
-                "txt-links": "Мы не несем ответственности за приватность на внешних ресурсах по ссылкам из чатов.",
-                "txt-footer": "ОБНОВЛЕНО: АПРЕЛЬ 2026 // ПРОТОКОЛ TRV-X // TRIVO SECURE SYSTEMS"
+                "txt-age": "Сервис для лиц 13+ (16+ в некоторых странах). Мы не собираем данные несовершеннолетних намеренно.",
+                "txt-rights": "Права на доступ и удаление данных реализуются пользователем самостоятельно через удаление приложения.",
+                "txt-law": "Мы соблюдаем законы, но из-за Zero-Knowledge архитектуры не можем предоставить переписку властям.",
+                "txt-links": "Мы не несем ответственности за приватность на внешних ресурсах, доступных по ссылкам из чатов.",
+                "txt-updates": "Мы оставляем за собой право обновлять протокол. Дальнейшее использование приложения означает согласие с правилами.",
+                "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ TRV-X-2026 // TRIVO SECURE SYSTEMS"
             }
         };
 
