@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRIVO CHAT | OFFICIAL PRIVACY PROTOCOL</title>
     <style>
-        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; }
+        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; --warn: #ff003c; }
         body, html { background: #000; color: var(--neon); font-family: 'Courier New', monospace; margin: 0; padding: 0; overflow-x: hidden; }
         #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
         .scanline { width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 50%, rgba(0,255,0,0.02) 50%); background-size: 100% 4px; position: fixed; pointer-events: none; z-index: 100; }
@@ -21,9 +21,15 @@
         h1, h2, h3 { text-transform: uppercase; letter-spacing: 2px; }
         h1 { font-size: 1.6rem; text-shadow: 0 0 10px var(--neon); }
         h2 { color: var(--blue); border-left: 4px solid var(--blue); padding-left: 10px; margin-top: 35px; font-size: 1.1rem; }
+        
+        .critical-section { border: 1px solid var(--warn); padding: 20px; background: rgba(20, 0, 0, 0.8); margin-top: 30px; }
+        .critical-header { color: var(--warn); text-shadow: 0 0 10px var(--warn); font-weight: bold; margin-bottom: 15px; display: block; }
+        .high-priority { color: #fff; background: var(--warn); padding: 2px 8px; font-weight: bold; margin-right: 10px; }
+        
         p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        ul { list-style: none; padding-left: 0; }
+        li { margin-bottom: 15px; padding-left: 20px; border-left: 1px solid var(--dim); }
+        strong { color: #fff; }
         
         .legal-footer { margin-top: 50px; text-align: center; font-size: 0.75rem; color: #444; border-top: 1px solid #222; padding-top: 20px; }
     </style>
@@ -45,37 +51,37 @@
         </div>
 
         <h2>I. INTRODUCTION & CORE VALUES</h2>
-        <p>Trivo Chat is a decentralized, peer-to-peer (P2P) communication platform. Our core mission is total user sovereignty. We operate under a <strong>Zero-Knowledge</strong> policy, meaning we do not have technical access to your private conversations or metadata.</p>
+        <p>Trivo Chat is a decentralized, peer-to-peer (P2P) communication platform. We operate under a <strong>Zero-Knowledge</strong> policy: no technical access to private data or metadata.</p>
 
         <h2>II. INFORMATION COLLECTION & USE</h2>
-        <p>We believe that the best way to protect your data is to never collect it. </p>
-        <ul>
-            <li><strong>Personal Data:</strong> We do NOT require or store phone numbers, email addresses, or real names.</li>
-            <li><strong>Contact Lists:</strong> We do NOT upload your contacts to any server.</li>
-            <li><strong>Cookies:</strong> Our application does not use tracking cookies or advertising identifiers.</li>
-        </ul>
+        <p>We do NOT collect phone numbers, emails, or real names. Data storage is 100% local on your device.</p>
 
-        <h2>III. DATA STORAGE & ARCHITECTURE</h2>
-        <p>Trivo Chat does not utilize central servers for message storage. All data is managed as follows:</p>
-        <ul>
-            <li><strong>Local Sovereignty:</strong> Your chat history, encryption keys, and media files are stored strictly on your physical device.</li>
-            <li><strong>Decentralization:</strong> Messages are delivered directly from sender to receiver. No copies are kept on any cloud infrastructure.</li>
-        </ul>
+        <div class="critical-section">
+            <span class="critical-header">IX. USER CONDUCT & CONTENT MODERATION (UGC POLICY)</span>
+            <p>To ensure a safe environment, Trivo Chat employs a Community-Based Reporting System. Users can report violations via the "Report" button in chat settings.</p>
+            
+            <ul>
+                <li><strong>1. Spam or Scams:</strong> Deceptive practices or automated advertising.</li>
+                <li><strong>2. Harassment:</strong> Targeted abuse or bullying.</li>
+                <li style="border-left: 3px solid var(--warn); padding-left: 15px;">
+                    <span class="high-priority">PRIORITY 3</span> <strong>CHILD SAFETY:</strong> Any content involving the exploitation of minors. 
+                    <p><em>Status: Strictly Monitored. Penalty: <strong>IMMEDIATE & PERMANENT BAN.</strong></em></p>
+                </li>
+                <li style="border-left: 3px solid var(--warn); padding-left: 15px;">
+                    <span class="high-priority">PRIORITY 4</span> <strong>ILLEGAL ACTIVITIES & EXTREMISM:</strong> Promotion of terrorism or organized crime.
+                    <p><em>Status: Strictly Monitored. Penalty: <strong>IMMEDIATE & PERMANENT BAN.</strong></em></p>
+                </li>
+                <li><strong>5. Hate Speech:</strong> Discrimination based on race, religion, or gender.</li>
+            </ul>
+            
+            <p><strong>ENFORCEMENT:</strong> Violations of Priority 3 and 4 are handled with <strong>Zero Tolerance</strong>. Upon verification of multiple reports, the associated Peer ID is permanently blacklisted from the network relay nodes without the possibility of recovery.</p>
+        </div>
 
-        <h2>IV. ENCRYPTION & SECURITY</h2>
-        <p>Every communication channel in Trivo Chat is protected by end-to-end encryption using <strong>PQXDH (Post-Quantum)</strong> protocols. This ensures that only the intended participants can read the content, protecting it from any third-party interception.</p>
+        <h2>X. THIRD-PARTY SERVICES & ADVERTISING</h2>
+        <p>Trivo Chat uses <strong>Google AdMob</strong>. AdMob may collect advertising identifiers (AAID) and cookies to serve ads. This process is governed by Google’s Privacy Policy.</p>
 
-        <h2>V. DATA RETENTION & DELETION</h2>
-        <p>You have 100% control over your data. Deleting a chat or the entire application results in the <strong>immediate and permanent destruction</strong> of all associated data from your device. We cannot recover deleted data because we never possessed it.</p>
-
-        <h2>VI. CHILDREN’S PRIVACY</h2>
-        <p>Trivo Chat does not knowingly collect personal information from children under the age of 13. Given our anonymous nature, we encourage parents to supervise their children’s digital activities.</p>
-
-        <h2>VII. COMPLIANCE (GDPR & CCPA)</h2>
-        <p>We respect international privacy standards. Under GDPR and CCPA, users have the right to access and delete their data. In Trivo Chat, these rights are exercised by the user directly through the application's local management tools.</p>
-
-        <h2>VIII. CONTACT INFORMATION</h2>
-        <p>For technical inquiries regarding this protocol, please contact the development team through our official GitHub repository or support channels.</p>
+        <h2>XI. DATA DELETION</h2>
+        <p>Deleting the application or a specific chat results in the permanent destruction of all local data. We cannot recover what we never stored.</p>
 
         <div class="legal-footer">
             CONFIDENTIALITY LEVEL: MAXIMUM // © 2026 TRIVO SECURE SYSTEMS
@@ -85,11 +91,11 @@
     <script>
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+        resize();
         const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%";
         const fontSize = 16;
-        const columns = canvas.width/fontSize;
-        const rainDrops = Array.from({ length: columns }).fill(1);
+        const rainDrops = Array.from({ length: canvas.width/fontSize }).fill(1);
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -104,7 +110,7 @@
             }
         }
         setInterval(drawMatrix, 35);
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+        window.addEventListener('resize', resize);
     </script>
 </body>
 </html>
