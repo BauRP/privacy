@@ -21,24 +21,22 @@
         .doc-sub { text-align: center; color: var(--blue); font-size: 0.9rem; margin-bottom: 50px; opacity: 0.8; }
         
         h2 { color: var(--blue); border-left: 6px solid var(--blue); padding-left: 20px; margin-top: 50px; font-size: 1.4rem; text-transform: uppercase; background: rgba(0,255,255,0.05); padding: 10px 20px; }
-        h3 { color: var(--gold); font-size: 1.1rem; margin-top: 30px; border-bottom: 1px solid var(--dim); display: inline-block; }
         
         .security-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
         .security-card { border: 1px solid var(--dim); padding: 20px; background: rgba(0,40,0,0.2); transition: 0.3s; border-radius: 4px; }
-        .security-card strong { color: var(--blue); display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; }
+        .security-card strong { color: var(--blue); display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; border-bottom: 1px solid var(--dim); padding-bottom: 5px; }
 
         .critical-alert { border: 3px double var(--warn); padding: 35px; background: rgba(60, 0, 0, 0.4); margin: 40px 0; position: relative; }
         .critical-tag { position: absolute; top: -18px; left: 30px; background: var(--warn); color: #fff; padding: 4px 20px; font-weight: bold; }
         
         p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; text-align: justify; margin-bottom: 15px; }
         .highlight { color: #fff; font-weight: bold; }
-        .link { color: var(--blue); text-decoration: underline; cursor: pointer; }
         
         .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; }
         .abuse-box { text-align: center; border: 1px solid var(--dim); padding: 25px; background: rgba(0,255,0,0.05); margin-top: 30px; }
         .blink { animation: blinker 1.5s linear infinite; }
         @keyframes blinker { 50% { opacity: 0.3; } }
-        @media (max-width: 768px) { .wrapper { padding: 20px; } }
+        @media (max-width: 768px) { .wrapper { padding: 20px; margin: 20px; } h1 { font-size: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -60,24 +58,24 @@
         <h1 id="txt-main-title"></h1>
         <p class="doc-sub" id="txt-doc-sub"></p>
 
-        <h2 id="h-sec1"></h2>
-        <div class="security-grid" id="grid1"></div>
+        <h2 id="h-sec-tech"></h2>
+        <div class="security-grid" id="grid-tech"></div>
 
-        <h2 id="h-sec2"></h2>
+        <h2 id="h-sec-kids"></h2>
         <div class="critical-alert">
             <div class="critical-tag" id="tag-crit"></div>
             <p id="txt-crit-p"></p>
             <p style="font-size: 0.8rem; color: var(--warn);" id="txt-crit-note"></p>
         </div>
 
-        <h2 id="h-sec3"></h2>
-        <div class="security-grid" id="grid2"></div>
+        <h2 id="h-sec-rights"></h2>
+        <div class="security-grid" id="grid-rights"></div>
 
-        <h2 id="h-sec4"></h2>
-        <div id="u-safety"></div>
+        <h2 id="h-sec-global"></h2>
+        <div class="security-grid" id="grid-global"></div>
 
-        <h2 id="h-sec5"></h2>
-        <div class="security-grid" id="grid3"></div>
+        <h2 id="h-sec-shield"></h2>
+        <div class="security-grid" id="grid-shield"></div>
 
         <div class="footer" id="txt-footer"></div>
         
@@ -93,36 +91,59 @@
                 "txt-layer": "Security Layer: OMNI-REDUNDANT",
                 "txt-node": "Node Status: ACTIVE",
                 "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard // v2.5.0 // Effective: April 2026",
-                "h-sec1": "I. LIABILITY PROTECTION & DISCLAIMERS",
-                "grid1": [
-                    ["Section 230 Protection", "Trivo Chat is a platform (interactive service), not a publisher. We are not liable for user-generated content or messages."],
-                    ["As-Is Basis", "The application is provided without warranties. We are not liable for network failures or data loss."],
-                    ["Limitation of Damages", "You agree that we are not liable for any incidental, indirect, or financial damages arising from app use."],
-                    ["Arbitration Clause", "Any disputes shall be resolved through individual binding arbitration only. Class action waiver is active."],
-                    ["Force Majeure", "We are not responsible for service interruptions caused by global internet outages or hacking attacks."]
+                "txt-doc-sub": "Global Standard // v3.0.0 // Effective: April 2026",
+                
+                "h-sec-tech": "I. TECHNICAL & BRAND PROTECTION",
+                "grid-tech": [
+                    ["Trademarks", "We are not affiliated with Google, Apple, or Meta. Trivo Chat is an independent protocol."],
+                    ["Relay Nodes", "We are not liable for failures of global decentralized nodes that we do not own."],
+                    ["Force Majeure", "No liability for outages caused by hackers, solar flares, or global internet disruptions."],
+                    ["External Links", "We do not verify or take responsibility for third-party websites shared in chats."],
+                    ["Screen Shield", "Anti-screenshot features are a deterrent, not a 100% technical guarantee."],
+                    ["Intellectual Property", "All design elements, code, and logos are the sole property of Trivo Secure Systems."],
+                    ["Anti-Parsing", "Unauthorized scraping or bot-access to the network is strictly prohibited."]
                 ],
-                "h-sec2": "II. CHILDREN'S PRIVACY (COPPA / GDPR-K)",
+
+                "h-sec-kids": "II. CHILDREN'S PRIVACY (COPPA / GDPR-K)",
                 "tag-crit": "STRICT COMPLIANCE",
-                "txt-crit-p": "Service is for users 13+ only (16+ in EU). We do not knowingly collect or sell data from minors. Any detected minor accounts will be terminated immediately. No behavioral tracking for children.",
-                "txt-crit-note": "*Sanctions executed at node level; re-entry is technically impossible for the flagged device ID.",
-                "h-sec3": "III. DATA SOVEREIGNTY (GDPR / CCPA / LGPD)",
-                "grid2": [
-                    ["Right to Erasure", "Deleting the app wipes all local encryption keys and data. We have no residual storage."],
-                    ["Do Not Sell My Info", "We do not sell data. You can opt-out of Advertising ID tracking via Android System Settings."],
-                    ["No Discrimination", "Your privacy choices will not result in any functional degradation or price changes."],
-                    ["Lawful Basis", "Data processing is strictly based on explicit consent for the purpose of P2P connection performance."],
-                    ["Eraser Law", "Users under 18 can request removal of their own content via app deletion or support contact."]
+                "txt-crit-p": "Service is for users 13+ only (16+ in EU). We do not knowingly collect or sell data from minors. Any detected minor accounts will be terminated immediately. Behavioral tracking for children is forbidden.",
+                "txt-crit-note": "*Sanctions executed at hardware level; re-entry is blocked for the flagged device ID.",
+
+                "h-sec-rights": "III. RIGHTS & SAFETY",
+                "grid-rights": [
+                    ["No KYC Policy", "We do not verify IDs or phone numbers. We are not a surveillance or governmental authority."],
+                    ["No Consultation", "Trivo Chat is for communication only, not for professional medical or legal advice."],
+                    ["Right to Block", "We reserve the right to terminate any Peer-ID for violating international safety laws."],
+                    ["AdMob Transparency", "Third-party Ad IDs are managed by Google. Refer to Google's Privacy Policy."],
+                    ["Export Responsibility", "Since we store nothing, users are responsible for manual backups of their chats."],
+                    ["Store Compliance", "This protocol adheres to the latest Google Play and Apple Store safety mandates."],
+                    ["Psychological Comfort", "We do not guarantee a pleasant experience; interactions are the responsibility of the users."]
                 ],
-                "h-sec4": "IV. USER SAFETY & LEGAL PROCESS (DMCA)",
-                "u-safety": "<p><strong>DMCA Notice:</strong> To report copyright infringement, email our agent with proof of ownership. We blacklist repeat offenders.</p><p><strong>Zero Tolerance:</strong> Immediate Peer-ID blacklisting for child exploitation, extremism, or terrorism promotion.</p>",
-                "h-sec5": "V. GLOBAL TERMS & TRANSFERS",
-                "grid3": [
-                    ["Cross-Border Transfer", "Encrypted packets transit via relay nodes in various global jurisdictions. Using app constitutes consent."],
-                    ["Statute of Limitations", "Any claim against us must be filed within one (1) year after the cause of action arose."],
-                    ["Biometric Privacy", "FaceID/Fingerprint is processed by the Android System; Trivo Chat has 0% access to raw data."],
-                    ["AdMob Transparency", "Third-party SDK (Google AdMob) may collect technical IDs. Refer to Google's Privacy Policy."]
+
+                "h-sec-global": "IV. GLOBAL TERMS & TRANSFERS",
+                "grid-global": [
+                    ["Shadowban Policy", "We may limit network access for suspicious IDs to maintain system integrity."],
+                    ["Auto-Updates", "Your continued use constitutes consent to the latest version of this policy."],
+                    ["Commercial Use", "Application is for personal use. Businesses use it at their own risk without financial guarantees."],
+                    ["Algorithm Errors", "No liability for accidental bans caused by automated safety systems."],
+                    ["Geofencing", "Users must stop using the app if it is prohibited by their local jurisdiction."],
+                    ["Transfer of Rights", "Consents remain valid if the project is sold or restructured."],
+                    ["Connection Costs", "Users bear all costs for mobile data, electricity, and hardware performance."]
                 ],
+
+                "h-sec-shield": "V. LEGAL SHIELD & LIABILITY PROTECTION",
+                "grid-shield": [
+                    ["Class Action Waiver", "You agree to resolve disputes only on an individual basis, waiving any class-action rights."],
+                    ["Binding Arbitration", "Any legal claim must be resolved through private arbitration, not in a court of law."],
+                    ["As-Is Warranty", "The service is provided 'As-Is' without any express or implied warranties."],
+                    ["Limitation of Damages", "We are not liable for lost profits, loss of data, or any specialized financial damages."],
+                    ["Section 230 Protection", "We are a platform provider, not a publisher. We are not liable for user content."],
+                    ["Statute of Limitations", "Any legal action must be filed within one (1) year after the event occurred."],
+                    ["Indemnification", "Users agree to defend the developer against claims arising from their misuse of the app."],
+                    ["Severability", "If any part of this policy is invalid, the remaining sections stay in full force."],
+                    ["Applicable Law", "This agreement is governed by international law and standards, regardless of location."]
+                ],
+
                 "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
                 "f-contact-title": "Abuse & Legal Official Contact (ADA Compliant):"
             },
@@ -130,36 +151,59 @@
                 "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
                 "txt-node": "Статус узла: АКТИВЕН",
                 "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт // v2.5.0 // В силе: Апрель 2026",
-                "h-sec1": "I. ЗАЩИТА ОТ ИСКОВ И ОГРАНИЧЕНИЯ",
-                "grid1": [
-                    ["Защита Section 230", "Trivo Chat — это платформа, а не издатель. Мы не несем ответственности за сообщения пользователей."],
-                    ["База «Как есть»", "Приложение предоставляется без гарантий. Мы не отвечаем за сбои сети или потерю данных."],
-                    ["Ограничение ущерба", "Вы соглашаетесь, что мы не возмещаем косвенные или финансовые убытки от использования приложения."],
-                    ["Арбитражный пункт", "Все споры решаются через индивидуальный арбитраж. Отказ от групповых исков обязателен."],
-                    ["Форс-мажор", "Мы не отвечаем за сбои, вызванные глобальными проблемами интернета или хакерскими атаками."]
+                "txt-doc-sub": "Глобальный стандарт // v3.0.0 // В силе: Апрель 2026",
+                
+                "h-sec-tech": "I. ТЕХНИЧЕСКАЯ И БРЕНДОВАЯ ЗАЩИТА",
+                "grid-tech": [
+                    ["Товарные знаки", "Мы не связаны с Google, Apple или Meta. Trivo Chat — независимый протокол."],
+                    ["Ответственность за узлы", "Мы не отвечаем за сбои децентрализованных узлов, которые нам не принадлежат."],
+                    ["Форс-мажор", "Нет ответственности за сбои из-за хакеров, атак на интернет или стихийных бедствий."],
+                    ["Внешние ссылки", "Мы не несем ответственности за безопасность сайтов, ссылки на которые присланы в чате."],
+                    ["Screen Shield", "Защита экрана — это сдерживающая мера, а не 100% техническая гарантия."],
+                    ["Интеллектуальная собственность", "Дизайн, код и логотипы являются исключительной собственностью Trivo Secure Systems."],
+                    ["Защита от парсинга", "Сбор данных ботами или автоматизированный доступ к сети строго запрещены."]
                 ],
-                "h-sec2": "II. ЗАЩИТА ДЕТЕЙ (COPPA / GDPR-K)",
+
+                "h-sec-kids": "II. ЗАЩИТА ДЕТЕЙ (COPPA / GDPR-K)",
                 "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ",
                 "txt-crit-p": "Сервис только для лиц 13+ (16+ в ЕС). Мы не собираем и не продаем данные детей. Аккаунты детей удаляются мгновенно при обнаружении. Поведенческая реклама для детей запрещена.",
-                "txt-crit-note": "*Блокировка на уровне узла; повторный вход для ID устройства технически невозможен.",
-                "h-sec3": "III. ПРАВА НА ДАННЫЕ (GDPR / CCPA / LGPD)",
-                "grid2": [
-                    ["Право на забвение", "Удаление приложения стирает все ключи и данные. У нас нет резервных копий."],
-                    ["Не продавать мои данные", "Мы не торгуем данными. Отключите трекинг рекламы в настройках Android."],
-                    ["Без дискриминации", "Ваш выбор в пользу приватности не приведет к ограничению функций или доступу к чату."],
-                    ["Законное основание", "Обработка данных ведется только на основе вашего согласия для работы P2P-сети."],
-                    ["Право на ошибку", "Лица до 18 лет могут потребовать удаления своего контента через удаление приложения."]
+                "txt-crit-note": "*Блокировка на уровне железа; повторный вход для ID устройства технически невозможен.",
+
+                "h-sec-rights": "III. ПРАВА И БЕЗОПАСНОСТЬ",
+                "grid-rights": [
+                    ["Политика No KYC", "Мы не проверяем паспорта. Мы не являемся надзорным или государственным органом."],
+                    ["Не консультация", "Чат предназначен только для связи, а не для медицинских или юридических советов."],
+                    ["Право на блокировку", "Мы оставляем за собой право банить любой ID за нарушение законов безопасности."],
+                    ["Прозрачность рекламы", "Рекламные ID управляются Google. См. политику конфиденциальности Google."],
+                    ["Ответственность за экспорт", "Мы ничего не храним, поэтому пользователь сам отвечает за бэкап своих чатов."],
+                    ["Правила Сторов", "Протокол соответствует требованиям безопасности Google Play и Apple App Store."],
+                    ["Психологический комфорт", "Мы не гарантируем приятного общения; это ответственность самих собеседников."]
                 ],
-                "h-sec4": "IV. БЕЗОПАСНОСТЬ И ЗАКОН (DMCA)",
-                "u-safety": "<p><strong>DMCA (Авторское право):</strong> Сообщайте о нарушениях на почту с доказательствами. Мы блокируем нарушителей.</p><p><strong>Нулевая терпимость:</strong> Мгновенный бан за экстремизм, терроризм или эксплуатацию детей.</p>",
-                "h-sec5": "V. ГЛОБАЛЬНЫЕ УСЛОВИЯ",
-                "grid3": [
-                    ["Трансграничная передача", "Зашифрованные пакеты проходят через узлы в разных странах. Использование — это ваше согласие."],
-                    ["Срок давности", "Любой иск должен быть подан в течение одного (1) года после возникновения инцидента."],
-                    ["Биометрия", "FaceID обрабатывается системой Android; Trivo Chat не видит ваши биометрические данные."],
-                    ["Прозрачность AdMob", "SDK Google AdMob может собирать технические ID. См. правила Google."]
+
+                "h-sec-global": "IV. ГЛОБАЛЬНЫЕ УСЛОВИЯ",
+                "grid-global": [
+                    ["Теневой бан (Shadowban)", "Мы можем ограничить доступ подозрительным ID для защиты целостности системы."],
+                    ["Обновление политики", "Использование приложения означает ваше согласие с последней версией правил."],
+                    ["Личное использование", "Приложение для личных нужд. Бизнес использует его на свой риск без гарантий."],
+                    ["Ошибка алгоритма", "Нет ответственности за случайные баны автоматическими системами защиты."],
+                    ["Территориальные ограничения", "Пользователь обязан прекратить использование, если это запрещено в его стране."],
+                    ["Передача прав", "Согласия остаются в силе при продаже проекта или смене владельца."],
+                    ["Расходы на связь", "Пользователь сам оплачивает трафик, электричество и работу устройства."]
                 ],
+
+                "h-sec-shield": "V. ЮРИДИЧЕСКИЙ ЩИТ И ОГРАНИЧЕНИЕ ОТВЕТСТВЕННОСТИ",
+                "grid-shield": [
+                    ["Отказ от групповых исков", "Вы соглашаетесь решать споры только лично, отказываясь от коллективных исков."],
+                    ["Обязательный арбитраж", "Все претензии решаются через частный арбитраж, а не в обычном суде."],
+                    ["Гарантия «Как есть»", "Сервис предоставляется без каких-либо явных или подразумеваемых гарантий."],
+                    ["Ограничение ущерба", "Мы не отвечаем за упущенную выгоду, потерю данных или финансовые убытки."],
+                    ["Защита Section 230", "Мы — платформа, а не издатель. Мы не отвечаем за контент пользователей."],
+                    ["Срок давности", "Иск должен быть подан в течение одного (1) года после возникновения инцидента."],
+                    ["Освобождение от ответственности", "Пользователь защищает разработчика от исков, вызванных его действиями."],
+                    ["Делимость положений", "Если часть правил недействительна, остальные пункты остаются в полной силе."],
+                    ["Применимое право", "Соглашение регулируется международными нормами, независимо от локации."]
+                ],
+
                 "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
                 "f-contact-title": "Официальный юридический контакт (ADA Compliant):"
             }
