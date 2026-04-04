@@ -1,44 +1,44 @@
-Господин, я понял задачу. Мы убираем пункт про камеру, так как способ добавления друзей через QR-код будет изменен, но оставляем все критические разделы по безопасности (3 и 4 пункты), модерации и рекламе.
-
-Я добавил новые разделы про удаление данных и отсутствие логов, чтобы политика выглядела максимально полной для Google Play.
-
-Вот ваш финальный, обновленный код для GitHub:
-HTML
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRIVO CHAT | OFFICIAL PRIVACY PROTOCOL</title>
+    <title>TRIVO CHAT | OFFICIAL PRIVACY & SECURITY PROTOCOL</title>
     <style>
-        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; --warn: #ff003c; }
+        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; --warn: #ff003c; --gold: #ffd700; }
         body, html { background: #000; color: var(--neon); font-family: 'Courier New', monospace; margin: 0; padding: 0; overflow-x: hidden; }
-        #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
+        #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
         .scanline { width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 50%, rgba(0,255,0,0.02) 50%); background-size: 100% 4px; position: fixed; pointer-events: none; z-index: 100; }
         
-        .wrapper { max-width: 900px; margin: 40px auto; padding: 30px; border: 1px solid var(--neon); background: rgba(0,10,0,0.95); box-shadow: 0 0 40px var(--dim); position: relative; animation: boot 1.5s ease-out; }
-        @keyframes boot { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .wrapper { max-width: 1100px; margin: 50px auto; padding: 50px; border: 1px solid var(--neon); background: rgba(0,5,0,0.98); box-shadow: 0 0 60px var(--dim); position: relative; animation: boot 2s ease-out; }
+        @keyframes boot { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
         
-        .header { text-align: center; border-bottom: 2px solid var(--neon); padding-bottom: 20px; margin-bottom: 30px; }
-        .status-top { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--blue); margin-bottom: 5px; text-transform: uppercase; }
-        .blink { animation: blinker 1s linear infinite; }
+        .status-header { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--blue); border-bottom: 2px solid var(--dim); padding-bottom: 15px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; }
+        .blink { animation: blinker 1.5s linear infinite; font-weight: bold; }
         
-        h1, h2, h3 { text-transform: uppercase; letter-spacing: 2px; }
-        h1 { font-size: 1.6rem; text-shadow: 0 0 10px var(--neon); }
-        h2 { color: var(--blue); border-left: 4px solid var(--blue); padding-left: 10px; margin-top: 35px; font-size: 1.1rem; }
+        h1 { font-size: 2.2rem; text-align: center; text-shadow: 0 0 20px var(--neon); margin-bottom: 10px; }
+        .doc-sub { text-align: center; color: var(--blue); font-size: 0.9rem; margin-bottom: 50px; opacity: 0.8; }
         
-        .report-system { background: rgba(0, 20, 0, 0.8); border: 1px solid var(--neon); padding: 20px; margin: 20px 0; }
-        .critical-box { border: 2px solid var(--warn); padding: 20px; background: rgba(40, 0, 0, 0.6); margin-top: 20px; }
-        .badge { background: var(--warn); color: #fff; padding: 2px 8px; font-weight: bold; font-size: 0.8rem; margin-right: 10px; }
+        h2 { color: var(--blue); border-left: 6px solid var(--blue); padding-left: 20px; margin-top: 50px; font-size: 1.4rem; text-transform: uppercase; background: rgba(0,255,255,0.05); padding-top: 10px; padding-bottom: 10px; }
+        h3 { color: var(--gold); font-size: 1.1rem; margin-top: 30px; text-decoration: underline; }
         
-        p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; }
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 12px; }
-        strong { color: #fff; }
+        .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; }
+        .security-card { border: 1px solid var(--dim); padding: 20px; background: rgba(0,40,0,0.2); transition: 0.3s; }
+        .security-card:hover { border-color: var(--neon); background: rgba(0,60,0,0.4); }
+        .security-card strong { color: var(--blue); display: block; margin-bottom: 10px; font-size: 1.1rem; }
+
+        .report-section { border: 1px solid var(--neon); padding: 25px; margin: 40px 0; background: rgba(0,20,0,0.5); }
+        .report-list { display: flex; flex-wrap: wrap; gap: 15px; list-style: none; padding: 0; margin-top: 20px; }
+        .report-list li { background: var(--dim); padding: 5px 15px; border: 1px solid var(--neon); font-size: 0.85rem; }
+
+        .critical-alert { border: 3px double var(--warn); padding: 35px; background: rgba(60, 0, 0, 0.8); margin: 40px 0; position: relative; }
+        .critical-tag { position: absolute; top: -18px; left: 30px; background: var(--warn); color: #fff; padding: 4px 20px; font-weight: bold; font-size: 1rem; box-shadow: 0 0 15px var(--warn); }
         
-        .legal-footer { margin-top: 50px; text-align: center; font-size: 0.75rem; color: #444; border-top: 1px solid #222; padding-top: 20px; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        p, li { color: #afffaf; line-height: 1.9; font-size: 1rem; text-align: justify; }
+        .highlight { color: #fff; font-weight: bold; }
+        
+        .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; }
+        @keyframes blinker { 50% { opacity: 0.3; } }
     </style>
 </head>
 <body>
@@ -46,63 +46,78 @@ HTML
     <div class="scanline"></div>
 
     <div class="wrapper">
-        <div class="status-top">
-            <span>Security Status: Verified</span>
-            <span>Language: English (Global)</span>
-            <span class="blink">● Encrypted_Connection</span>
+        <div class="status-header">
+            <span>Security Layer: OMNI-REDUNDANT</span>
+            <span>Node Status: ACTIVE</span>
+            <span class="blink">● ENCRYPTION_STABLE</span>
         </div>
 
         <div class="header">
-            <h1>TRIVO CHAT: DATA PRIVACY PROTOCOL</h1>
-            <p>Official Document for Google Play Store Compliance</p>
+            <h1>TRIVO CHAT: PRIVACY ARCHITECTURE & SECURITY PROTOCOL</h1>
+            <p class="doc-sub">Global Standard for Decentralized Communication // Version 2.2.0 (2026)</p>
         </div>
 
-        <h2>I. DECENTRALIZED MODERATION (UGC POLICY)</h2>
-        <p>Trivo Chat empowers users to maintain a safe environment through a built-in <strong>Reporting System</strong>. Each user has the right to flag content that violates our Community Guidelines.</p>
+        <h2>I. CORE ARCHITECTURAL SECURITY</h2>
+        <p>Trivo Chat is not a service; it is a <span class="highlight">Decentralized Protocol</span>. Our security model is based on the principle of "Trustless Communication," where the system is designed to be secure even if the underlying network is compromised.</p>
+        
+        <div class="security-grid">
+            <div class="security-card">
+                <strong>01. P2P Handshake</strong>
+                Connections are established directly between devices. There is no central authority to intercept, monitor, or block traffic.
+            </div>
+            <div class="security-card">
+                <strong>02. Post-Quantum Cryptography</strong>
+                We employ <span class="highlight">PQXDH</span> (Post-Quantum Extended Diffie-Hellman) for key exchange, ensuring security against future quantum computing attacks.
+            </div>
+            <div class="security-card">
+                <strong>03. Zero-Knowledge Proofs</strong>
+                The developers have technical 0% access to your identity, contact list, or data packets. Your identity is a cryptographic hash, not a database entry.
+            </div>
+            <div class="security-card">
+                <strong>04. Local Sovereignty</strong>
+                Encryption keys and chat history never leave your physical hardware. You are the sole custodian of your digital footprint.
+            </div>
+        </div>
 
-        <div class="report-system">
-            <h3>Standard Reporting Categories:</h3>
-            <ul>
-                <li><strong>1. Spam or Scams:</strong> Commercial advertising or deceptive financial practices.</li>
-                <li><strong>2. Harassment or Bullying:</strong> Targeted personal abuse or intimidation.</li>
-                <li><strong>3. Child Safety:</strong> Any content involving the harm or exploitation of minors.</li>
-                <li><strong>4. Illegal Activities & Extremism:</strong> Promotion of terrorism or criminal acts.</li>
-                <li><strong>5. Hate Speech:</strong> Attacks based on race, religion, or gender.</li>
-                <li><strong>6. Other:</strong> Miscellaneous policy violations.</li>
+        <h2>II. USER-GENERATED CONTENT (UGC) & REPORTING</h2>
+        <div class="report-section">
+            <p>To comply with Google Play Store policies and international safety standards, Trivo Chat includes a <span class="highlight">Community-Based Moderation System</span>. Users can flag peers for violating safety standards using the following categories:</p>
+            <ul class="report-list">
+                <li>01. Spam & Scams</li>
+                <li>02. Harassment & Bullying</li>
+                <li>03. Child Safety</li>
+                <li>04. Illegal Activities & Extremism</li>
+                <li>05. Hate Speech</li>
+                <li>06. Other</li>
             </ul>
         </div>
 
-        <div class="critical-box">
-            <h3 style="color: var(--warn);">CRITICAL ENFORCEMENT PROTOCOL:</h3>
-            <p>We apply a <strong>Zero-Tolerance Policy</strong> for the following high-priority violations:</p>
-            
+        <div class="critical-alert">
+            <div class="critical-tag">ZERO TOLERANCE: PRIORITY 3 & 4</div>
+            <p>Trivo Chat enforces an automated <span class="highlight">Permanent Blacklisting</span> protocol for the most severe violations to ensure global network health:</p>
             <ul>
-                <li>
-                    <span class="badge">PRIORITY 3</span> <strong>CHILD SAFETY:</strong> Any Peer ID associated with the exploitation of minors will be <strong>PERMANENTLY BANNED</strong> from the relay network immediately.
-                </li>
-                <li style="margin-top: 15px;">
-                    <span class="badge">PRIORITY 4</span> <strong>ILLEGAL ACTIVITIES & EXTREMISM:</strong> Promotion of terrorism, organized crime, or violent extremist ideologies results in an <strong>IRREVERSIBLE TERMINATION</strong> of network access.
-                </li>
+                <li><strong>Child Safety (Priority 3):</strong> Any verified attempt to exploit minors results in an immediate, network-wide ban of the Peer-ID.</li>
+                <li><strong>Extremism (Priority 4):</strong> Promotion of terrorism or violent extremist ideologies leads to irreversible cryptographic termination of service access.</li>
             </ul>
-            <p style="font-size: 0.85rem; margin-top: 15px; border-top: 1px solid var(--warn); padding-top: 10px;">
-                *Enforcement Action: Banned users lose all P2P handshake capabilities. Access cannot be restored by the development team.
-            </p>
+            <p style="font-size: 0.9rem; color: #ff9999; margin-top: 15px;">*Sanctions are executed at the relay node level, making re-entry technically impossible for the flagged device ID.</p>
         </div>
 
-        <h2>II. PRIVACY & DATA SOVEREIGNTY</h2>
-        <p>Our P2P architecture ensures that we do NOT collect or store your private conversations. All chat history and encryption keys are stored strictly on your physical device.</p>
+        <h2>III. DATA DELETION & ADVANCED PROTECTION</h2>
+        <h3>Panic Trigger (Instant Wipe)</h3>
+        <p>Trivo Chat includes a "Panic Mode." Users can trigger an <span class="highlight">Instant Data Wipe</span> within the application, which permanently overwrites local encryption keys and chat databases, rendering all information unrecoverable even by forensic tools.</p>
 
-        <h2>III. DATA DELETION & ACCOUNT MANAGEMENT</h2>
-        <p>Since Trivo Chat is a decentralized platform, there is no centralized "User Account." To delete all associated data, encryption keys, and message history, simply use the "Clear Data" function or uninstall the application. This action is <strong>permanent and irreversible</strong>.</p>
+        <h3>No Metadata Logging</h3>
+        <p>Our relay nodes operate in "Blind Mode." They do not log IP addresses, timestamps, or routing patterns. We prioritize the anonymity of the connection as much as the content of the message.</p>
 
-        <h2>IV. NO METADATA LOGGING</h2>
-        <p>Our network relay nodes do not log IP addresses, timestamps, or interaction patterns. Your communication remains invisible even to the infrastructure that facilitates the connection.</p>
+        <h2>IV. ADVERTISING & TRANSPARENCY (ADMOB)</h2>
+        <p>Trivo Chat utilizes <strong>Google AdMob</strong> for monetization. AdMob may collect device-specific information (Android Advertising ID) and cookies to serve advertisements. This process is strictly separate from the encrypted chat environment and is governed by Google’s Privacy Policy.</p>
 
-        <h2>V. THIRD-PARTY SERVICES (ADMOB)</h2>
-        <p>Trivo Chat integrates <strong>Google AdMob</strong>. AdMob may utilize advertising identifiers (AAID) and cookies to provide ad services. This is subject to Google’s standard Privacy Policy.</p>
+        <h2>V. LEGAL COMPLIANCE & JURISDICTION</h2>
+        <p>As a decentralized P2P tool, Trivo Chat does not act as a data controller under GDPR or CCPA. We provide the infrastructure; users are responsible for the content they transmit. We fulfill legal obligations by providing tools for community moderation while maintaining the technical impossibility of decrypting user traffic.</p>
 
-        <div class="legal-footer">
-            CONFIDENTIALITY LEVEL: MAXIMUM // © 2026 TRIVO SECURE SYSTEMS
+        <div class="footer">
+            CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // EST. BY TRIVO SECURE SYSTEMS <br>
+            <span class="highlight">PRIVATE. DECENTRALIZED. SECURE.</span>
         </div>
     </div>
 
@@ -111,7 +126,7 @@ HTML
         const ctx = canvas.getContext('2d');
         const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
         resize();
-        const alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#@%";
+        const alphabet = "1010110010101010011010101011";
         const fontSize = 16;
         const rainDrops = Array.from({ length: Math.floor(canvas.width/fontSize) }).fill(1);
 
