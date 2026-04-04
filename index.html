@@ -32,6 +32,9 @@
         p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; text-align: justify; margin-bottom: 15px; }
         .highlight { color: #fff; font-weight: bold; }
         
+        a { color: var(--blue); text-decoration: none; border-bottom: 1px dashed var(--blue); transition: 0.3s; }
+        a:hover { color: var(--neon); border-color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+
         .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; }
         .abuse-box { text-align: center; border: 1px solid var(--dim); padding: 25px; background: rgba(0,255,0,0.05); margin-top: 30px; }
         .blink { animation: blinker 1.5s linear infinite; }
@@ -83,7 +86,10 @@
         <h2 id="h-sec-shield"></h2>
         <div class="security-grid" id="grid-shield"></div>
 
-        <div class="footer" id="txt-footer"></div>
+        <div class="footer">
+            <p id="txt-google-link" style="margin-bottom: 20px;"></p>
+            <div id="txt-footer"></div>
+        </div>
         
         <div class="abuse-box">
             <span id="f-contact-title" style="color: var(--blue); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;"></span><br>
@@ -97,7 +103,7 @@
                 "txt-layer": "Security Layer: OMNI-REDUNDANT",
                 "txt-node": "Node Status: ACTIVE",
                 "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard // v3.5.0 // Effective: April 2026",
+                "txt-doc-sub": "Global Standard // v3.5.1 // Effective: April 2026",
                 
                 "h-sec-access": "I. DATA ACCESS & PERMISSIONS",
                 "grid-access": [
@@ -118,12 +124,12 @@
                 "grid-content": [
                     ["Hate Speech Zero-Tolerance", "Promotion of violence, extremism, or discrimination based on race, religion, or gender is strictly prohibited."],
                     ["Shock Content", "Posting of graphic violence, illegal acts, or highly disturbing content will result in an immediate permanent ban."],
-                    ["In-App Reporting", "Trivo Chat provides a functional 'Report' button for users to flag inappropriate content or malicious actors."],
-                    ["24-Hour Moderation", "All reports are reviewed by our safety systems within 24 hours. Violators are blacklisted at the hardware ID level."],
+                    ["In-App Reporting", "Trivo Chat provides a functional 'Report' button for users to flag inappropriate content."],
+                    ["24-Hour Moderation", "All reports are reviewed by our safety systems within 24 hours. Violators are blacklisted at the hardware level."],
                     ["Anti-Fraud", "Use of the platform for phishing, scams, or social engineering is a violation of our core protocol."]
                 ],
 
-                "h-sec-kids": "IV. CHILDREN'S PRIVACY (COPPA / GDPR-K)",
+                "h-sec-kids": "IV. CHILDREN'S PRIVACY",
                 "tag-crit": "STRICT COMPLIANCE",
                 "txt-crit-p": "Service is for users 13+ only (16+ in EU). We do not knowingly collect or sell data from minors. Any detected minor accounts will be terminated immediately. Behavioral tracking for children is forbidden.",
                 "txt-crit-note": "*Sanctions executed at hardware level; re-entry is blocked for the flagged device ID.",
@@ -138,12 +144,12 @@
 
                 "h-sec-global": "VI. GLOBAL STANDARDS & MONETIZATION",
                 "grid-global": [
-                    ["AdMob & AAID", "We use Google's Advertising ID (AAID) for monetization. Users can reset this ID in their Android system settings."],
+                    ["AdMob Transparency", "Third-party Ad IDs are managed by Google. You may review the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a> for more details."],
+                    ["AAID Management", "Users can reset their Advertising ID in Android settings. We follow Google's data minimization principles."],
                     ["Ad Safety", "Advertisements are filtered to match the 13+ age category and global safety standards."],
                     ["Purchase Transparency", "All financial transactions for premium features are processed exclusively through the Google Play Billing System."],
                     ["EEA Consent", "Users in the European Economic Area have the right to withdraw data consent at any time."],
-                    ["CCPA Compliance", "California residents may request a report on the categories of technical data collected."],
-                    ["Accessibility", "We strive to ensure the interface is compatible with global accessibility standards for all users."]
+                    ["Accessibility", "We strive to ensure the interface is compatible with global accessibility standards (ADA)."]
                 ],
 
                 "h-sec-shield": "VII. LEGAL SHIELD & LIABILITY PROTECTION",
@@ -153,10 +159,10 @@
                     ["As-Is Warranty", "The service is provided 'As-Is' without any express or implied warranties."],
                     ["Limitation of Damages", "We are not liable for lost profits, loss of data, or any specialized financial damages."],
                     ["Section 230 Protection", "We are a platform provider, not a publisher. We are not liable for user content."],
-                    ["Statute of Limitations", "Any legal action must be filed within one (1) year after the event occurred."],
                     ["Applicable Law", "This agreement is governed by international law and standards, regardless of location."]
                 ],
 
+                "txt-google-link": "For more information on how data is handled by our partners, please visit: <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy & Terms</a>",
                 "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
                 "f-contact-title": "Abuse & Legal Official Contact (ADA Compliant):"
             },
@@ -164,12 +170,12 @@
                 "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
                 "txt-node": "Статус узла: АКТИВЕН",
                 "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт // v3.5.0 // В силе: Апрель 2026",
+                "txt-doc-sub": "Глобальный стандарт // v3.5.1 // В силе: Апрель 2026",
                 
                 "h-sec-access": "I. ДОСТУП К ДАННЫМ И РАЗРЕШЕНИЯ",
                 "grid-access": [
                     ["Прозрачность контактов", "Доступ к контактам используется только для поиска друзей. Мы не храним ваш список контактов на серверах в открытом виде."],
-                    ["Медиа и файлы", "Доступ к галерее/файлам предоставляется только для отправки данных пользователем. Мы не просматриваем ваши файлы автономно."],
+                    ["Медиа и файлы", "Доступ к галерее/файлам предоставляется только для отправки данных пользователем. Мы не просматриваем файлы автономно."],
                     ["Камера и микрофон", "Датчики активируются ТОЛЬКО в момент записи голосовых сообщений или видеозвонков, инициированных вами."],
                     ["Фоновая работа", "Фоновая активность ограничена доставкой уведомлений в реальном времени и синхронизацией P2P-узлов."]
                 ],
@@ -183,47 +189,47 @@
 
                 "h-sec-content": "III. БЕЗОПАСНОСТЬ КОНТЕНТА (UGC)",
                 "grid-content": [
-                    ["Hate Speech (Ненависть)", "Любая пропаганда насилия, экстремизма или дискриминации по расовому, религиозному или гендерному признаку строго запрещена."],
+                    ["Hate Speech (Ненависть)", "Любая пропаганда насилия, экстремизма или дискриминации строго запрещена."],
                     ["Шок-контент", "Публикация сцен насилия или незаконных актов ведет к мгновенной пожизненной блокировке аккаунта."],
-                    ["Механизм жалоб", "Trivo Chat предоставляет кнопку «Пожаловаться» для маркировки неприемлемого контента или вредоносных пользователей."],
+                    ["Механизм жалоб", "Trivo Chat предоставляет кнопку «Пожаловаться» для маркировки неприемлемого контента."],
                     ["Модерация за 24 часа", "Все жалобы рассматриваются в течение суток. Нарушители блокируются на уровне аппаратного ID устройства."],
                     ["Защита от мошенничества", "Использование платформы для фишинга или обмана пользователей является грубым нарушением протокола."]
                 ],
 
-                "h-sec-kids": "II. ЗАЩИТА ДЕТЕЙ (COPPA / GDPR-K)",
+                "h-sec-kids": "IV. ЗАЩИТА ДЕТЕЙ",
                 "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ",
                 "txt-crit-p": "Сервис только для лиц 13+ (16+ в ЕС). Мы не собираем и не продаем данные детей. Аккаунты детей удаляются мгновенно при обнаружении. Поведенческая реклама для детей запрещена.",
                 "txt-crit-note": "*Блокировка на уровне железа; повторный вход для ID устройства технически невозможен.",
 
                 "h-sec-tech": "V. ТЕХНИЧЕСКАЯ АРХИТЕКТУРА И SDK",
                 "grid-tech": [
-                    ["Проверенные SDK", "Мы используем библиотеки сторонних разработчиков (например, Google AdMob), которые соблюдают мировые стандарты безопасности."],
-                    ["Шифрование транзита", "Все пакеты данных передаются через защищенные протоколы HTTPS/TLS с использованием сквозного шифрования."],
+                    ["Проверенные SDK", "Мы используем библиотеки сторонних разработчиков (например, Google AdMob), соблюдающие мировые стандарты безопасности."],
+                    ["Шифрование транзита", "Все пакеты данных передаются через защищенные протоколы HTTPS/TLS со сквозным шифрованием."],
                     ["Защита от вредоносного ПО", "Trivo Chat не содержит скрытых функций, вирусов или шпионского ПО. Мы поддерживаем чистоту кода."],
                     ["Ответственность за узлы", "Мы не отвечаем за сбои децентрализованных узлов, которые нам не принадлежат."]
                 ],
 
                 "h-sec-global": "VI. ГЛОБАЛЬНЫЕ СТАНДАРТЫ И МОНЕТИЗАЦИЯ",
                 "grid-global": [
-                    ["AdMob и AAID", "Мы используем рекламный ID Google (AAID) для монетизации. Вы можете сбросить его в настройках системы Android."],
+                    ["Прозрачность AdMob", "Рекламные ID управляются Google. Вы можете ознакомиться с <a href='https://policies.google.com/privacy' target='_blank'>Политикой конфиденциальности Google</a> для деталей."],
+                    ["Управление AAID", "Пользователи могут сбросить рекламный ID в настройках Android. Мы следуем принципам минимизации данных Google."],
                     ["Безопасность рекламы", "Рекламные объявления фильтруются для соответствия категории 13+ и мировым стандартам."],
                     ["Прозрачность покупок", "Все платежи за премиум-функции проходят исключительно через платежную систему Google Play."],
                     ["Согласие EEA (ЕС)", "Пользователи из Европы имеют право отозвать согласие на обработку данных в любой момент."],
-                    ["Соответствие CCPA", "Жители Калифорнии могут запросить отчет о категориях собираемых технических данных."],
-                    ["Доступность (Accessibility)", "Мы стремимся к тому, чтобы интерфейс соответствовал стандартам доступности для всех групп пользователей."]
+                    ["Доступность (Accessibility)", "Мы стремимся к тому, чтобы интерфейс соответствовал стандартам доступности (ADA) для всех пользователей."]
                 ],
 
-                "h-sec-shield": "VII. ЮРИДИЧЕСКИЙ ЩИТ И ОГРАНИЧЕНИЕ ОТВЕТСТВЕННОСТИ",
+                "h-sec-shield": "VII. ЮРИДИЧЕСКИЙ ЩИТ",
                 "grid-shield": [
                     ["Отказ от групповых исков", "Вы соглашаетесь решать споры только лично, отказываясь от коллективных исков."],
                     ["Обязательный арбитраж", "Все претензии решаются через частный арбитраж, а не в обычном суде."],
                     ["Гарантия «Как есть»", "Сервис предоставляется без каких-либо явных или подразумеваемых гарантий."],
                     ["Ограничение ущерба", "Мы не отвечаем за упущенную выгоду, потерю данных или финансовые убытки."],
                     ["Защита Section 230", "Мы — платформа, а не издатель. Мы не отвечаем за контент пользователей."],
-                    ["Срок давности", "Иск должен быть подан в течение одного (1) года после возникновения инцидента."],
                     ["Применимое право", "Соглашение регулируется международными нормами, независимо от локации."]
                 ],
 
+                "txt-google-link": "Для получения дополнительной информации о том, как обрабатываются данные нашими партнерами, посетите: <a href='https://policies.google.com/privacy' target='_blank'>Конфиденциальность и условия Google</a>",
                 "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
                 "f-contact-title": "Официальный юридический контакт (ADA Compliant):"
             }
