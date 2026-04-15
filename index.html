@@ -61,6 +61,9 @@
         <h1 id="txt-main-title"></h1>
         <p class="doc-sub" id="txt-doc-sub"></p>
 
+        <h2 id="h-sec-biometry"></h2>
+        <div class="security-grid" id="grid-biometry"></div>
+
         <h2 id="h-sec-access"></h2>
         <div class="security-grid" id="grid-access"></div>
 
@@ -103,9 +106,17 @@
                 "txt-layer": "Security Layer: OMNI-REDUNDANT",
                 "txt-node": "Node Status: ACTIVE",
                 "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard // v3.5.1 // Effective: April 2026",
+                "txt-doc-sub": "Global Standard // v3.5.2 // Effective: April 2026",
                 
-                "h-sec-access": "I. DATA ACCESS & PERMISSIONS",
+                "h-sec-biometry": "I. CRYPTOGRAPHIC & BIOMETRIC SHIELD",
+                "grid-biometry": [
+                    ["End-to-End Encryption", "All messages are secured using advanced cryptographic protocols (BouncyCastle 1.70). Keys remain only on user devices."],
+                    ["Biometric Security", "Fingerprint and FaceID data never leave the device hardware. We only receive an encrypted token from the system's secure enclave."],
+                    ["Node Decentralization", "Your data flows through independent relay nodes, preventing central point surveillance or data harvesting."],
+                    ["Zero-Knowledge Architecture", "Our servers cannot read your messages or see your files. We provide the pipe, you provide the lock."]
+                ],
+
+                "h-sec-access": "II. DATA ACCESS & PERMISSIONS",
                 "grid-access": [
                     ["Contacts Transparency", "Contacts are accessed only to find friends. We do not store your contact list on our servers in an unencrypted or readable format."],
                     ["Media & Files", "Access to gallery/files is strictly for user-initiated file sharing. We do not browse or collect your private files autonomously."],
@@ -113,14 +124,14 @@
                     ["Background Processing", "Background activity is strictly limited to delivering real-time notifications and maintaining P2P sync."]
                 ],
 
-                "h-sec-account": "II. ACCOUNT MANAGEMENT",
+                "h-sec-account": "III. ACCOUNT MANAGEMENT",
                 "grid-account": [
                     ["Account Deletion", "Users can initiate full account and data deletion directly within the app settings at any time."],
                     ["Data Erasure Period", "Upon request, all user-related metadata is purged from the network immediately or within a maximum of 24 hours."],
                     ["Export Responsibility", "Since we do not store chat history, users are responsible for manual backups of their own conversations."]
                 ],
 
-                "h-sec-content": "III. CONTENT SAFETY (UGC)",
+                "h-sec-content": "IV. CONTENT SAFETY (UGC)",
                 "grid-content": [
                     ["Hate Speech Zero-Tolerance", "Promotion of violence, extremism, or discrimination based on race, religion, or gender is strictly prohibited."],
                     ["Shock Content", "Posting of graphic violence, illegal acts, or highly disturbing content will result in an immediate permanent ban."],
@@ -129,12 +140,12 @@
                     ["Anti-Fraud", "Use of the platform for phishing, scams, or social engineering is a violation of our core protocol."]
                 ],
 
-                "h-sec-kids": "IV. CHILDREN'S PRIVACY",
+                "h-sec-kids": "V. CHILDREN'S PRIVACY",
                 "tag-crit": "STRICT COMPLIANCE",
                 "txt-crit-p": "Service is for users 13+ only (16+ in EU). We do not knowingly collect or sell data from minors. Any detected minor accounts will be terminated immediately. Behavioral tracking for children is forbidden.",
                 "txt-crit-note": "*Sanctions executed at hardware level; re-entry is blocked for the flagged device ID.",
 
-                "h-sec-tech": "V. TECHNICAL ARCHITECTURE & SDK",
+                "h-sec-tech": "VI. TECHNICAL ARCHITECTURE & SDK",
                 "grid-tech": [
                     ["Trusted SDKs", "We use verified third-party libraries (e.g., Google AdMob) that comply with global security standards."],
                     ["Transit Encryption", "All data packets are transmitted via secure HTTPS/TLS protocols using end-to-end encryption."],
@@ -142,7 +153,7 @@
                     ["Relay Nodes", "We are not liable for failures of global decentralized nodes that we do not own."]
                 ],
 
-                "h-sec-global": "VI. GLOBAL STANDARDS & MONETIZATION",
+                "h-sec-global": "VII. GLOBAL STANDARDS & MONETIZATION",
                 "grid-global": [
                     ["AdMob Transparency", "Third-party Ad IDs are managed by Google. You may review the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a> for more details."],
                     ["AAID Management", "Users can reset their Advertising ID in Android settings. We follow Google's data minimization principles."],
@@ -152,7 +163,7 @@
                     ["Accessibility", "We strive to ensure the interface is compatible with global accessibility standards (ADA)."]
                 ],
 
-                "h-sec-shield": "VII. LEGAL SHIELD & LIABILITY PROTECTION",
+                "h-sec-shield": "VIII. LEGAL SHIELD & LIABILITY PROTECTION",
                 "grid-shield": [
                     ["Class Action Waiver", "You agree to resolve disputes only on an individual basis, waiving any class-action rights."],
                     ["Binding Arbitration", "Any legal claim must be resolved through private arbitration, not in a court of law."],
@@ -170,9 +181,17 @@
                 "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
                 "txt-node": "Статус узла: АКТИВЕН",
                 "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт // v3.5.1 // В силе: Апрель 2026",
+                "txt-doc-sub": "Глобальный стандарт // v3.5.2 // В силе: Апрель 2026",
                 
-                "h-sec-access": "I. ДОСТУП К ДАННЫМ И РАЗРЕШЕНИЯ",
+                "h-sec-biometry": "I. КРИПТОГРАФИЧЕСКИЙ И БИОМЕТРИЧЕСКИЙ ЩИТ",
+                "grid-biometry": [
+                    ["Сквозное шифрование", "Все сообщения защищены продвинутыми протоколами (BouncyCastle 1.70). Ключи хранятся только на устройствах пользователей."],
+                    ["Биометрическая защита", "Данные отпечатков и FaceID никогда не покидают устройство. Мы получаем только зашифрованный токен от системы."],
+                    ["Децентрализация узлов", "Ваши данные проходят через независимые узлы ретрансляции, что исключает централизованную слежку или сбор данных."],
+                    ["Архитектура Zero-Knowledge", "Наши серверы не могут читать ваши сообщения. Мы предоставляем трубу, замок вешаете вы сами."]
+                ],
+
+                "h-sec-access": "II. ДОСТУП К ДАННЫМ И РАЗРЕШЕНИЯ",
                 "grid-access": [
                     ["Прозрачность контактов", "Доступ к контактам используется только для поиска друзей. Мы не храним ваш список контактов на серверах в открытом виде."],
                     ["Медиа и файлы", "Доступ к галерее/файлам предоставляется только для отправки данных пользователем. Мы не просматриваем файлы автономно."],
@@ -180,14 +199,14 @@
                     ["Фоновая работа", "Фоновая активность ограничена доставкой уведомлений в реальном времени и синхронизацией P2P-узлов."]
                 ],
 
-                "h-sec-account": "II. УПРАВЛЕНИЕ АККАУНТОМ",
+                "h-sec-account": "III. УПРАВЛЕНИЕ АККАУНТОМ",
                 "grid-account": [
                     ["Удаление аккаунта", "Пользователи могут инициировать полное удаление аккаунта и всех данных прямо в настройках приложения в любое время."],
                     ["Срок удаления данных", "Все метаданные пользователя стираются из сети немедленно или в течение максимум 24 часов после запроса."],
                     ["Ответственность за экспорт", "Мы не храним историю чатов, поэтому пользователь сам отвечает за создание резервных копий своих переписок."]
                 ],
 
-                "h-sec-content": "III. БЕЗОПАСНОСТЬ КОНТЕНТА (UGC)",
+                "h-sec-content": "IV. БЕЗОПАСНОСТЬ КОНТЕНТА (UGC)",
                 "grid-content": [
                     ["Hate Speech (Ненависть)", "Любая пропаганда насилия, экстремизма или дискриминации строго запрещена."],
                     ["Шок-контент", "Публикация сцен насилия или незаконных актов ведет к мгновенной пожизненной блокировке аккаунта."],
@@ -196,12 +215,12 @@
                     ["Защита от мошенничества", "Использование платформы для фишинга или обмана пользователей является грубым нарушением протокола."]
                 ],
 
-                "h-sec-kids": "IV. ЗАЩИТА ДЕТЕЙ",
+                "h-sec-kids": "V. ЗАЩИТА ДЕТЕЙ",
                 "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ",
                 "txt-crit-p": "Сервис только для лиц 13+ (16+ в ЕС). Мы не собираем и не продаем данные детей. Аккаунты детей удаляются мгновенно при обнаружении. Поведенческая реклама для детей запрещена.",
                 "txt-crit-note": "*Блокировка на уровне железа; повторный вход для ID устройства технически невозможен.",
 
-                "h-sec-tech": "V. ТЕХНИЧЕСКАЯ АРХИТЕКТУРА И SDK",
+                "h-sec-tech": "VI. ТЕХНИЧЕСКАЯ АРХИТЕКТУРА И SDK",
                 "grid-tech": [
                     ["Проверенные SDK", "Мы используем библиотеки сторонних разработчиков (например, Google AdMob), соблюдающие мировые стандарты безопасности."],
                     ["Шифрование транзита", "Все пакеты данных передаются через защищенные протоколы HTTPS/TLS со сквозным шифрованием."],
@@ -209,7 +228,7 @@
                     ["Ответственность за узлы", "Мы не отвечаем за сбои децентрализованных узлов, которые нам не принадлежат."]
                 ],
 
-                "h-sec-global": "VI. ГЛОБАЛЬНЫЕ СТАНДАРТЫ И МОНЕТИЗАЦИЯ",
+                "h-sec-global": "VII. ГЛОБАЛЬНЫЕ СТАНДАРТЫ И МОНЕТИЗАЦИЯ",
                 "grid-global": [
                     ["Прозрачность AdMob", "Рекламные ID управляются Google. Вы можете ознакомиться с <a href='https://policies.google.com/privacy' target='_blank'>Политикой конфиденциальности Google</a> для деталей."],
                     ["Управление AAID", "Пользователи могут сбросить рекламный ID в настройках Android. Мы следуем принципам минимизации данных Google."],
@@ -219,7 +238,7 @@
                     ["Доступность (Accessibility)", "Мы стремимся к тому, чтобы интерфейс соответствовал стандартам доступности (ADA) для всех пользователей."]
                 ],
 
-                "h-sec-shield": "VII. ЮРИДИЧЕСКИЙ ЩИТ",
+                "h-sec-shield": "VIII. ЮРИДИЧЕСКИЙ ЩИТ",
                 "grid-shield": [
                     ["Отказ от групповых исков", "Вы соглашаетесь решать споры только лично, отказываясь от коллективных исков."],
                     ["Обязательный арбитраж", "Все претензии решаются через частный арбитраж, а не в обычном суде."],
