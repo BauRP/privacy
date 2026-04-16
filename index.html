@@ -109,71 +109,87 @@
                 "txt-layer": "Security Layer: OMNI-REDUNDANT",
                 "node-status": "Node Status: ACTIVE",
                 "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard // v3.6.0 // Updated: April 2026",
+                "txt-doc-sub": "Global Standard // v3.6.0 // Effective: April 2026",
                 
                 "h-sec-biometry": "I. CRYPTOGRAPHIC & BIOMETRIC SHIELD",
                 "grid-biometry": [
-                    ["Local SQLCipher Encryption", "All local databases are encrypted with AES-256 (SQLCipher). Encryption keys are stored in the hardware-backed Android Keystore."],
-                    ["End-to-End Encryption", "Messages are secured using advanced cryptographic protocols (BouncyCastle 1.70). Keys remain only on user devices."],
-                    ["Biometric Security", "Fingerprint/FaceID data never leave the device hardware. We only use encrypted system tokens for authentication."],
-                    ["Zero-Knowledge Architecture", "We cannot read your messages. We provide the infrastructure, you hold the cryptographic keys."]
+                    ["Local Database Encryption", "All chat logs are secured with AES-256 (SQLCipher) and hardware-backed Android Keystore."],
+                    ["End-to-End Encryption", "All messages are secured using advanced cryptographic protocols (BouncyCastle 1.70). Keys remain only on user devices."],
+                    ["Biometric Security", "Fingerprint and FaceID data never leave the device hardware. We only receive an encrypted token from the system."],
+                    ["Node Decentralization", "Your data flows through independent relay nodes, preventing central surveillance or data harvesting."],
+                    ["Zero-Knowledge Architecture", "Our servers cannot read your messages or see your files. We provide the pipe, you provide the lock."],
+                    ["Quantum-Resistant Protection", "E2EE is active with PQXDH protocol. This ensures protection that cannot be breached even by quantum computers."]
                 ],
 
                 "h-sec-access": "II. DATA ACCESS & PERMISSIONS",
                 "grid-access": [
-                    ["Anonymous Identity", "No phone number or email required. Identity is based on a locally generated unique ID."],
-                    ["Media & Files", "Access to gallery is strictly for user-initiated sharing. No autonomous background scanning."],
-                    ["Sensors", "Camera/Microphone are activated ONLY during active user-initiated recording or calls."]
+                    ["Anonymous Protocol", "No email or phone number required. Your identity is an anonymous ID generated locally on your hardware."],
+                    ["Media & Files", "Access to gallery/files is strictly for user-initiated sharing. We do not browse your files autonomously."],
+                    ["Camera & Microphone", "Sensors are activated ONLY during active recording or calls initiated by the user."],
+                    ["Background Processing", "Background activity is limited to real-time notifications and P2P sync."]
                 ],
 
                 "h-sec-recovery": "III. CLOUD SYNC & DISASTER RECOVERY",
                 "grid-recovery": [
-                    ["Android Auto Backup", "If enabled, we sync only 'identity.json' (ID, Nick, Friend List). This file is encrypted with your master password before upload."],
-                    ["Chat History Policy", "Message history is NEVER backed up to the cloud. Deleting the app or switching devices wipes all local chat logs."],
-                    ["Manual Export", "Users can manually export a '.vault' recovery file in Settings for offline storage."]
+                    ["Android Auto Backup", "If enabled, only 'identity.json' (ID and contact list) is synced. This is encrypted before being sent to the cloud."],
+                    ["Chat History Policy", "Messages are NOT backed up to Google Drive/Cloud. Deleting the app wipes all local message databases."],
+                    ["Manual Vault Export", "Users can manually export an encrypted '.vault' file in Settings for personal cross-device transfer."]
                 ],
 
-                "h-sec-account": "IV. DATA DELETION & MANAGEMENT",
+                "h-sec-account": "IV. ACCOUNT MANAGEMENT",
                 "grid-account": [
-                    ["In-App Deletion", "Users can initiate a full data wipe within Settings. All local databases are shredded immediately."],
-                    ["External Deletion Request", "Since we don't store your data on servers, deleting the app or using 'Wipe All' fulfills the 'Right to be Forgotten' requirement."],
-                    ["Account Independence", "User accounts are not linked to Google/Meta profiles, ensuring maximum detachment."]
+                    ["Account Deletion", "Users can initiate full account and data deletion directly within the app settings at any time."],
+                    ["Account Deletion Request", "Since no data is stored on our servers, deleting the app or using 'Wipe All' in Settings fulfills the right to be forgotten."],
+                    ["Data Erasure Period", "User metadata is purged from the network immediately or within 24 hours upon request."],
+                    ["Export Responsibility", "Since history isn't stored, users are responsible for manual backups of their own conversations."]
                 ],
 
                 "h-sec-content": "V. CONTENT SAFETY (UGC)",
                 "grid-content": [
-                    ["User Reporting", "Trivo Chat provides a dedicated 'Report' button for inappropriate content. Each report is reviewed within 24 hours."],
-                    ["Support Echo-Bot", "An automated support bot is available to all users to verify connection status and report technical abuse."],
-                    ["Zero-Tolerance", "Hate speech or graphic violence results in a permanent hardware-level ban."]
+                    ["Hate Speech Zero-Tolerance", "Promotion of violence or discrimination based on race, religion, or gender is strictly prohibited."],
+                    ["Shock Content", "Posting of graphic violence or illegal acts results in an immediate permanent hardware ban."],
+                    ["Support Echo-Bot", "An automated support bot is available to all users to verify connection integrity and report abuses."],
+                    ["In-App Reporting", "Trivo Chat provides a functional 'Report' button for users to flag inappropriate content."],
+                    ["24-Hour Moderation", "Reports are reviewed within 24 hours. Violators are blacklisted at the hardware level."],
+                    ["Anti-Fraud", "Phishing, scams, or social engineering is a violation of our core protocol."]
                 ],
 
                 "h-sec-kids": "VI. CHILDREN'S PRIVACY",
                 "tag-crit": "STRICT COMPLIANCE",
-                "txt-crit-p": "Service is for users 13+ only. We do not knowingly collect or track any data from minors. Behavioral tracking is strictly forbidden.",
-                "txt-crit-note": "*Enforcement is managed at the hardware ID level; re-entry for violators is blocked.",
+                "txt-crit-p": "Service is for users 13+ only (16+ in EU). Any detected minor accounts will be terminated immediately. Behavioral tracking for children is forbidden.",
+                "txt-crit-note": "*Sanctions executed at hardware level; re-entry is blocked for the flagged device ID.",
 
-                "h-sec-tech": "VII. TECHNICAL SDK & INTEGRITY",
+                "h-sec-tech": "VII. TECHNICAL ARCHITECTURE & SDK",
                 "grid-tech": [
-                    ["Verified SDKs", "All integrated libraries (e.g., Google AdMob) comply with 2026 global safety and data minimization standards."],
-                    ["SSL Pinning", "All traffic is protected via SSL Pinning and HTTPS/TLS to prevent Man-in-the-Middle attacks."],
-                    ["Malware-Free", "Clean architecture with no hidden background processes or data harvesting scripts."]
+                    ["Trusted SDKs", "We use verified libraries (e.g., Google AdMob) that comply with global security standards."],
+                    ["Transit Encryption", "All data packets are transmitted via secure HTTPS/TLS protocols with end-to-end encryption."],
+                    ["SSL Pinning", "All traffic is protected via SSL Pinning to prevent Man-in-the-Middle (MitM) attacks."],
+                    ["Malware Protection", "Trivo Chat contains no hidden features or spyware. We maintain a clean software architecture."],
+                    ["Relay Nodes", "We are not liable for failures of global decentralized nodes that we do not own."]
                 ],
 
-                "h-sec-global": "VIII. MONETIZATION & ADVERTISING",
+                "h-sec-global": "VIII. GLOBAL STANDARDS & MONETIZATION",
                 "grid-global": [
-                    ["Google AdMob", "Third-party Ad IDs are managed by Google. Review <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>."],
-                    ["Advertising ID", "Users can reset or opt-out of ad personalization in Android system settings at any time."],
-                    ["Billing Integrity", "All financial transactions are handled via the Google Play Billing System."]
+                    ["AdMob Transparency", "Third-party Ad IDs are managed by Google. Review the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>."],
+                    ["AAID Management", "Users can reset their Advertising ID in Android settings. We follow data minimization principles."],
+                    ["Ad Safety", "Advertisements are filtered to match the 13+ age category and safety standards."],
+                    ["Purchase Transparency", "Financial transactions are processed exclusively through the Google Play Billing System."],
+                    ["EEA Consent", "Users in the EEA have the right to withdraw data consent at any time."],
+                    ["Accessibility", "We strive for compatibility with global accessibility standards (ADA)."]
                 ],
 
-                "h-sec-shield": "IX. LEGAL SHIELD & LIABILITY",
+                "h-sec-shield": "IX. LEGAL SHIELD & LIABILITY PROTECTION",
                 "grid-shield": [
-                    ["Arbitration Agreement", "Disputes are resolved via private arbitration, waiving rights to class-action lawsuits."],
-                    ["As-Is Basis", "The service is provided 'As-Is' without warranties. We are not liable for data loss during device transitions."],
-                    ["Section 230", "As a platform provider, we are not liable for user-generated content shared via encrypted channels."]
+                    ["Class Action Waiver", "You agree to resolve disputes only individually, waiving class-action rights."],
+                    ["Binding Arbitration", "Any legal claim must be resolved through private arbitration, not in a court."],
+                    ["As-Is Warranty", "The service is provided 'As-Is' without any express or implied warranties."],
+                    ["Limitation of Damages", "We are not liable for lost profits, data loss, or specialized financial damages."],
+                    ["Section 230 Protection", "We are a platform provider, not a publisher. We are not liable for user content."],
+                    ["Applicable Law", "This agreement is governed by international standards, regardless of location."],
+                    ["Indemnification", "Users agree to indemnify TRIVO from claims arising from misuse of the service."]
                 ],
 
-                "txt-google-link": "Reference: <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy & Terms</a>",
+                "txt-google-link": "For more information: <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy & Terms</a>",
                 "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
                 "f-contact-title": "Abuse & Legal Official Contact (ADA Compliant):"
             },
@@ -181,73 +197,89 @@
                 "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
                 "node-status": "Статус узла: АКТИВЕН",
                 "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт // v3.6.0 // Обновлено: Апрель 2026",
+                "txt-doc-sub": "Глобальный стандарт // v3.6.0 // В силе: Апрель 2026",
                 
                 "h-sec-biometry": "I. КРИПТОГРАФИЧЕСКИЙ И БИОМЕТРИЧЕСКИЙ ЩИТ",
                 "grid-biometry": [
-                    ["Шифрование SQLCipher", "Локальные базы данных защищены AES-256 (SQLCipher). Ключи хранятся в аппаратном Android Keystore."],
-                    ["Сквозное шифрование (E2EE)", "Сообщения защищены протоколами BouncyCastle 1.70. Ключи находятся только у пользователей."],
-                    ["Биометрия", "Данные отпечатков/FaceID не покидают устройство. Мы используем только системные токены подтверждения."],
-                    ["Zero-Knowledge", "Мы не можем читать ваши чаты. Мы даем инфраструктуру, вы владеете ключами доступа."]
+                    ["Шифрование базы (SQLCipher)", "Локальная история сообщений защищена AES-256 через SQLCipher и аппаратный Android Keystore."],
+                    ["Сквозное шифрование", "Все сообщения защищены продвинутыми протоколами (BouncyCastle 1.70). Ключи только на устройствах пользователей."],
+                    ["Биометрическая защита", "Данные отпечатков и FaceID никогда не покидают устройство. Мы получаем только зашифрованный токен."],
+                    ["Децентрализация узлов", "Данные проходят через независимые узлы ретрансляции, что исключает централизованную слежку."],
+                    ["Архитектура Zero-Knowledge", "Наши серверы не могут читать сообщения. Мы предоставляем трубу, замок вешаете вы сами."],
+                    ["Квантовая защита", "E2EE активно с PQXDH. Это защита, которую невозможно взломать даже крипто-компьютером."]
                 ],
 
-                "h-sec-access": "II. ДОСТУП И АНОНИМНОСТЬ",
+                "h-sec-access": "II. ДОСТУП К ДАННЫМ И АНОНИМНОСТЬ",
                 "grid-access": [
-                    ["Анонимные ID", "Номер телефона или почта не требуются. Личность привязана к локально созданному уникальному ID."],
-                    ["Медиа и файлы", "Доступ к галерее — только для отправки файлов пользователем. Нет фонового сканирования."],
-                    ["Датчики", "Камера и микрофон активны ТОЛЬКО во время звонков или записи, начатой пользователем."]
+                    ["Анонимный протокол", "Никаких E-mail или номеров телефона. Ваша личность — анонимный ID, созданный локально на устройстве."],
+                    ["Медиа и файлы", "Доступ предоставляется только для отправки данных пользователем. Мы не просматриваем файлы автономно."],
+                    ["Камера и микрофон", "Датчики активируются ТОЛЬКО в момент записи или звонков, инициированных вами."],
+                    ["Фоновая работа", "Фоновая активность ограничена уведомлениями и синхронизацией P2P-узлов."]
                 ],
 
-                "h-sec-recovery": "III. ОБЛАЧНАЯ СИНХРОНИЗАЦИЯ И ВОССТАНОВЛЕНИЕ",
+                "h-sec-recovery": "III. СИНХРОНИЗАЦИЯ И ВОССТАНОВЛЕНИЕ",
                 "grid-recovery": [
-                    ["Android Auto Backup", "Синхронизируется только 'identity.json' (ID, Ник, Друзья). Файл шифруется вашим паролем перед выгрузкой."],
-                    ["Политика истории чатов", "Переписка НИКОГДА не копируется в облако. Удаление приложения стирает все чаты безвозвратно."],
-                    ["Ручной экспорт", "Вы можете сохранить файл восстановления '.vault' вручную в настройках для оффлайн хранения."]
+                    ["Android Auto Backup", "При включении синхронизируется только 'identity.json' (ID и друзья). Файл шифруется перед отправкой в облако."],
+                    ["История сообщений", "Переписка НЕ копируется в Google Drive/Cloud. Удаление приложения стирает все базы чатов."],
+                    ["Экспорт хранилища", "Пользователь может вручную экспортировать файл '.vault' для переноса данных между устройствами."]
                 ],
 
-                "h-sec-account": "IV. УДАЛЕНИЕ ДАННЫХ И ПРАВО НА ЗАБВЕНИЕ",
+                "h-sec-account": "IV. УПРАВЛЕНИЕ АККАУНТОМ",
                 "grid-account": [
-                    ["Удаление в приложении", "Функция «Очистить всё» полностью уничтожает локальные базы данных без возможности восстановления."],
-                    ["Запрос на удаление", "Так как мы не храним данные на серверах, удаление приложения пользователем является окончательным удалением всех данных."],
-                    ["Независимость", "Аккаунты не привязаны к профилям Google/Meta, обеспечивая полную автономность."]
+                    ["Удаление аккаунта", "Пользователи могут полностью удалить аккаунт и данные в настройках приложения в любое время."],
+                    ["Запрос на удаление данных", "Так как данные не хранятся на серверах, удаление приложения или кнопка 'Очистить всё' является окончательным актом удаления."],
+                    ["Срок удаления данных", "Метаданные стираются из сети немедленно или в течение 24 часов после запроса."],
+                    ["Ответственность за экспорт", "Мы не храним историю чатов, поэтому пользователь сам отвечает за резервные копии."]
                 ],
 
                 "h-sec-content": "V. БЕЗОПАСНОСТЬ КОНТЕНТА (UGC)",
                 "grid-content": [
-                    ["Система жалоб", "Кнопка «Пожаловаться» доступна в каждом чате. Жалобы проверяются модераторами в течение 24 часов."],
-                    ["Эхо-бот поддержки", "Встроенный бот 'Support' помогает проверить работу сети и отправить отчет о нарушениях."],
-                    ["Блокировка", "Пропаганда насилия ведет к пожизненному бану устройства по ID железа."]
+                    ["Ненависть (Hate Speech)", "Любая пропаганда насилия или дискриминации строго запрещена."],
+                    ["Шок-контент", "Публикация сцен насилия ведет к мгновенной блокировке на уровне железа."],
+                    ["Эхо-бот поддержки", "Встроенный бот 'Support' помогает проверить работу сети и сообщить о нарушениях."],
+                    ["Механизм жалоб", "Trivo Chat предоставляет кнопку «Пожаловаться» для маркировки контента."],
+                    ["Модерация за 24 часа", "Жалобы рассматриваются в течение суток. Нарушители блокируются навсегда."],
+                    ["Защита от мошенничества", "Фишинг или обман пользователей являются грубым нарушением протокола."]
                 ],
 
                 "h-sec-kids": "VI. ЗАЩИТА ДЕТЕЙ",
                 "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ",
-                "txt-crit-p": "Сервис только для лиц 13+. Мы не отслеживаем данные детей. Любые выявленные аккаунты несовершеннолетних удаляются.",
-                "txt-crit-note": "*Санкции применяются на уровне ID устройства; повторный вход для нарушителей заблокирован.",
+                "txt-crit-p": "Сервис для лиц 13+ (16+ в ЕС). Аккаунты детей удаляются мгновенно при обнаружении. Поведенческая реклама для детей запрещена.",
+                "txt-crit-note": "*Блокировка на уровне железа; повторный вход для ID устройства технически невозможен.",
 
-                "h-sec-tech": "VII. ТЕХНИЧЕСКАЯ ЦЕЛОСТНОСТЬ",
+                "h-sec-tech": "VII. ТЕХНИЧЕСКАЯ АРХИТЕКТУРА И SDK",
                 "grid-tech": [
-                    ["Проверенные SDK", "Все библиотеки (вкл. Google AdMob) соответствуют стандартам минимизации данных 2026 года."],
-                    ["SSL Pinning", "Трафик защищен от перехвата (MitM) через SSL Pinning и протоколы HTTPS/TLS."],
-                    ["Чистый код", "Отсутствие скрытых фоновых процессов, вирусов или скриптов сбора информации."]
+                    ["Проверенные SDK", "Библиотеки (напр. Google AdMob) соблюдают мировые стандарты безопасности."],
+                    ["Шифрование транзита", "Все пакеты передаются через HTTPS/TLS со сквозным шифрованием."],
+                    ["Технология SSL Pinning", "Трафик защищен от перехвата (MitM) через жесткую привязку SSL-сертификатов."],
+                    ["Защита от вредоносов", "Trivo Chat не содержит вирусов или шпионского ПО. Чистая архитектура."],
+                    ["Ответственность за узлы", "Мы не отвечаем за сбои децентрализованных узлов, которые нам не принадлежат."]
                 ],
 
-                "h-sec-global": "VIII. МОНЕТИЗАЦИЯ И РЕКЛАМА",
+                "h-sec-global": "VIII. ГЛОБАЛЬНЫЕ СТАНДАРТЫ И МОНЕТИЗАЦИЯ",
                 "grid-global": [
-                    ["Google AdMob", "Рекламные ID управляются Google. См. <a href='https://policies.google.com/privacy' target='_blank'>Политику Google</a>."],
-                    ["Управление рекламой", "Вы можете сбросить рекламный ID в настройках Android в любое время."],
-                    ["Платежи", "Все транзакции проводятся исключительно через платежную систему Google Play."]
+                    ["Прозрачность AdMob", "Рекламные ID управляются Google. См. <a href='https://policies.google.com/privacy' target='_blank'>Политику конфиденциальности Google</a>."],
+                    ["Управление AAID", "Пользователи могут сбросить рекламный ID в настройках Android."],
+                    ["Безопасность рекламы", "Реклама фильтруется для соответствия категории 13+."],
+                    ["Прозрачность покупок", "Платежи проходят исключительно через систему Google Play."],
+                    ["Согласие EEA (ЕС)", "Пользователи из Европы могут отозвать согласие на обработку данных."],
+                    ["Доступность (ADA)", "Мы стремимся к тому, чтобы интерфейс соответствовал стандартам доступности."]
                 ],
 
-                "h-sec-shield": "IX. ЮРИДИЧЕСКАЯ ЗАЩИТА",
+                "h-sec-shield": "IX. ЮРИДИЧЕСКИЙ ЩИТ",
                 "grid-shield": [
-                    ["Арбитраж", "Все споры решаются через частный арбитраж, без права на коллективные иски."],
-                    ["Отказ от ответственности", "Сервис предоставляется «как есть». Мы не отвечаем за потерю данных при смене устройства."],
-                    ["Секция 230", "Мы являемся платформой, а не издателем, и не несем ответственности за контент пользователей."]
+                    ["Отказ от групповых исков", "Вы соглашаетесь решать споры только лично, отказываясь от коллективных исков."],
+                    ["Обязательный арбитраж", "Все претензии решаются через частный арбитраж, а не в суде."],
+                    ["Гарантия «Как есть»", "Сервис предоставляется без каких-либо явных или подразумеваемых гарантий."],
+                    ["Ограничение ущерба", "Мы не отвечаем за упущенную выгоду или потерю данных."],
+                    ["Защита Section 230", "Мы — платформа, а не издатель. Мы не отвечаем за контент пользователей."],
+                    ["Применимое право", "Соглашение регулируется международными нормами."],
+                    ["Возмещение ущерба", "Пользователи обязуются ограждать TRIVO от претензий, возникших из-за нарушения данных условий."]
                 ],
 
-                "txt-google-link": "Для справки: <a href='https://policies.google.com/privacy' target='_blank'>Конфиденциальность Google</a>",
+                "txt-google-link": "Дополнительно: <a href='https://policies.google.com/privacy' target='_blank'>Конфиденциальность Google</a>",
                 "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
-                "f-contact-title": "Официальный контакт (ADA Compliant):"
+                "f-contact-title": "Официальный юридический контакт (ADA Compliant):"
             }
         };
 
