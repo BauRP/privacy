@@ -1,331 +1,318 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRIVO CHAT | GLOBAL PRIVACY & LEGAL SHIELD</title>
-    <style>
-        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; --warn: #ff003c; --gold: #ffd700; }
-        body, html { background: #000; color: var(--neon); font-family: 'Courier New', monospace; margin: 0; padding: 0; overflow-x: hidden; }
-        #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; }
-        .scanline { width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 50%, rgba(0,255,0,0.02) 50%); background-size: 100% 4px; position: fixed; pointer-events: none; z-index: 100; }
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>TRIVO CHAT | GLOBAL PRIVACY & ARCHITECTURE SHIELD</title> 
+    <style> 
+        :root { --neon: #0f0; --dim: #030; --blue: #00ffff; --warn: #ff003c; --gold: #ffd700; } 
+
+        body, html { background: #000; color: var(--neon); font-family: 'Courier New', monospace; margin: 0; padding: 0; overflow-x: hidden; } 
+        #matrix { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.15; } 
+
+        .scanline { width: 100%; height: 100%; background: linear-gradient(to bottom, transparent 50%, rgba(0,255,0,0.02) 50%); background-size: 100% 4px; position: fixed; pointer-events: none; z-index: 100; } 
         
-        .lang-control { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; align-items: center; background: rgba(0,20,0,0.8); padding: 10px; border: 1px solid var(--neon); box-shadow: 0 0 15px var(--dim); }
-        .lang-btn { background: transparent; border: 1px solid var(--dim); color: var(--dim); padding: 5px 12px; cursor: pointer; font-family: inherit; font-weight: bold; transition: 0.3s; }
-        .lang-btn.active { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 10px var(--blue); }
+        .lang-control { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 10px; align-items: center; background: rgba(0,20,0,0.8); padding: 10px; border: 1px solid var(--neon); box-shadow: 0 0 15px var(--dim); } 
 
-        .wrapper { max-width: 1150px; margin: 50px auto; padding: 50px; border: 1px solid var(--neon); background: rgba(0,5,0,0.98); box-shadow: 0 0 60px var(--dim); position: relative; }
-        .status-header { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--blue); border-bottom: 2px solid var(--dim); padding-bottom: 15px; margin-bottom: 40px; text-transform: uppercase; }
+        .lang-btn { background: transparent; border: 1px solid var(--dim); color: var(--dim); padding: 5px 12px; cursor: pointer; font-family: inherit; font-weight: bold; transition: 0.3s; } 
+        .lang-btn.active { border-color: var(--blue); color: var(--blue); box-shadow: 0 0 10px var(--blue); } 
+
+        .wrapper { max-width: 1150px; margin: 50px auto; padding: 50px; border: 1px solid var(--neon); background: rgba(0,5,0,0.98); box-shadow: 0 0 60px var(--dim); position: relative; } 
+
+        .status-header { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--blue); border-bottom: 2px solid var(--dim); padding-bottom: 15px; margin-bottom: 40px; text-transform: uppercase; } 
         
-        h1 { font-size: 2.2rem; text-align: center; text-shadow: 0 0 20px var(--neon); margin-bottom: 10px; text-transform: uppercase; }
-        .doc-sub { text-align: center; color: var(--blue); font-size: 0.9rem; margin-bottom: 50px; opacity: 0.8; }
+        h1 { font-size: 2.2rem; text-align: center; text-shadow: 0 0 20px var(--neon); margin-bottom: 10px; text-transform: uppercase; } 
+        .doc-sub { text-align: center; color: var(--blue); font-size: 0.9rem; margin-bottom: 50px; opacity: 0.8; } 
         
-        h2 { color: var(--blue); border-left: 6px solid var(--blue); padding-left: 20px; margin-top: 50px; font-size: 1.4rem; text-transform: uppercase; background: rgba(0,255,255,0.05); padding: 10px 20px; }
+        h2 { color: var(--blue); border-left: 6px solid var(--blue); padding-left: 20px; margin-top: 50px; font-size: 1.4rem; text-transform: uppercase; background: rgba(0,255,255,0.05); padding: 10px 20px; } 
         
-        .security-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
-        .security-card { border: 1px solid var(--dim); padding: 20px; background: rgba(0,40,0,0.2); transition: 0.3s; border-radius: 4px; }
-        .security-card strong { color: var(--blue); display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; border-bottom: 1px solid var(--dim); padding-bottom: 5px; }
+        .security-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; } 
 
-        .critical-alert { border: 3px double var(--warn); padding: 35px; background: rgba(60, 0, 0, 0.4); margin: 40px 0; position: relative; }
-        .critical-tag { position: absolute; top: -18px; left: 30px; background: var(--warn); color: #fff; padding: 4px 20px; font-weight: bold; }
+        .security-card { border: 1px solid var(--dim); padding: 20px; background: rgba(0,40,0,0.2); transition: 0.3s; border-radius: 4px; } 
+
+        .security-card strong { color: var(--blue); display: block; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem; border-bottom: 1px solid var(--dim); padding-bottom: 5px; } 
+
+        .critical-alert { border: 3px double var(--warn); padding: 35px; background: rgba(60, 0, 0, 0.4); margin: 40px 0; position: relative; } 
+
+        .critical-tag { position: absolute; top: -18px; left: 30px; background: var(--warn); color: #fff; padding: 4px 20px; font-weight: bold; } 
         
-        p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; text-align: justify; margin-bottom: 15px; }
-        .highlight { color: #fff; font-weight: bold; }
+        p, li { color: #afffaf; line-height: 1.7; font-size: 0.95rem; text-align: justify; margin-bottom: 15px; } 
+        .highlight { color: #fff; font-weight: bold; } 
         
-        a { color: var(--blue); text-decoration: none; border-bottom: 1px dashed var(--blue); transition: 0.3s; }
-        a:hover { color: var(--neon); border-color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+        a { color: var(--blue); text-decoration: none; border-bottom: 1px dashed var(--blue); transition: 0.3s; } 
+        a:hover { color: var(--neon); border-color: var(--neon); text-shadow: 0 0 10px var(--neon); } 
 
-        .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; }
-        .abuse-box { text-align: center; border: 1px solid var(--dim); padding: 25px; background: rgba(0,255,0,0.05); margin-top: 30px; }
-        .blink { animation: blinker 1.5s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0.3; } }
-        @media (max-width: 768px) { .wrapper { padding: 20px; margin: 20px; } h1 { font-size: 1.5rem; } }
-    </style>
-</head>
-<body>
-    <canvas id="matrix"></canvas>
-    <div class="scanline"></div>
+        .footer { margin-top: 80px; text-align: center; font-size: 0.85rem; color: #666; border-top: 1px solid #333; padding-top: 40px; } 
 
-    <div class="lang-control">
-        <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
-        <button id="btn-ru" class="lang-btn" onclick="setLanguage('ru')">RU</button>
-    </div>
+        .abuse-box { text-align: center; border: 1px solid var(--dim); padding: 25px; background: rgba(0,255,0,0.05); margin-top: 30px; } 
+        .blink { animation: blinker 1.5s linear infinite; } 
+        @keyframes blinker { 50% { opacity: 0.3; } } 
+        @media (max-width: 768px) { .wrapper { padding: 20px; margin: 20px; } h1 { font-size: 1.5rem; } } 
+    </style> 
+</head> 
+<body> 
+    <canvas id="matrix"></canvas> 
+    <div class="scanline"></div> 
 
-    <div class="wrapper">
-        <div class="status-header">
-            <span id="txt-layer"></span>
-            <span id="node-status"></span>
-            <span class="blink">● ENCRYPTION_STABLE</span>
-        </div>
+    <div class="lang-control"> 
+        <button id="btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button> 
+        <button id="btn-ru" class="lang-btn" onclick="setLanguage('ru')">RU</button> 
+    </div> 
 
-        <h1 id="txt-main-title"></h1>
-        <p class="doc-sub" id="txt-doc-sub"></p>
+    <div class="wrapper"> 
+        <div class="status-header"> 
+            <span id="txt-layer"></span> 
+            <span id="node-status"></span> 
+            <span class="blink">● TOR_ONION_ACTIVE</span> 
+        </div> 
 
-        <h2 id="h-sec-biometry"></h2>
-        <div class="security-grid" id="grid-biometry"></div>
+        <h1 id="txt-main-title"></h1> 
+        <p class="doc-sub" id="txt-doc-sub"></p> 
 
-        <h2 id="h-sec-access"></h2>
-        <div class="security-grid" id="grid-access"></div>
+        <h2 id="h-sec-tor"></h2> 
+        <div class="security-grid" id="grid-tor"></div> 
 
-        <h2 id="h-sec-recovery"></h2>
-        <div class="security-grid" id="grid-recovery"></div>
+        <h2 id="h-sec-crypto"></h2> 
+        <div class="security-grid" id="grid-crypto"></div> 
 
-        <h2 id="h-sec-account"></h2>
-        <div class="security-grid" id="grid-account"></div>
+        <h2 id="h-sec-biometry"></h2> 
+        <div class="security-grid" id="grid-biometry"></div> 
 
-        <h2 id="h-sec-content"></h2>
-        <div class="security-grid" id="grid-content"></div>
+        <h2 id="h-sec-access"></h2> 
+        <div class="security-grid" id="grid-access"></div> 
 
-        <h2 id="h-sec-kids"></h2>
-        <div class="critical-alert">
-            <div class="critical-tag" id="tag-crit"></div>
-            <p id="txt-crit-p"></p>
-            <p style="font-size: 0.8rem; color: var(--warn);" id="txt-crit-note"></p>
-        </div>
+        <h2 id="h-sec-recovery"></h2> 
+        <div class="security-grid" id="grid-recovery"></div> 
 
-        <h2 id="h-sec-tech"></h2>
-        <div class="security-grid" id="grid-tech"></div>
+        <h2 id="h-sec-account"></h2> 
+        <div class="security-grid" id="grid-account"></div> 
 
-        <h2 id="h-sec-global"></h2>
-        <div class="security-grid" id="grid-global"></div>
+        <h2 id="h-sec-kids"></h2> 
+        <div class="critical-alert"> 
+            <div class="critical-tag" id="tag-crit"></div> 
+            <p id="txt-crit-p"></p> 
+            <p style="font-size: 0.8rem; color: var(--warn);" id="txt-crit-note"></p> 
+        </div> 
 
-        <h2 id="h-sec-shield"></h2>
-        <div class="security-grid" id="grid-shield"></div>
+        <h2 id="h-sec-tech"></h2> 
+        <div class="security-grid" id="grid-tech"></div> 
 
-        <div class="footer">
-            <p id="txt-google-link" style="margin-bottom: 20px;"></p>
-            <div id="txt-footer"></div>
-        </div>
+        <h2 id="h-sec-global"></h2> 
+        <div class="security-grid" id="grid-global"></div> 
+
+        <h2 id="h-sec-shield"></h2> 
+        <div class="security-grid" id="grid-shield"></div> 
+
+        <div class="footer"> 
+            <p id="txt-google-link" style="margin-bottom: 20px;"></p> 
+            <div id="txt-footer"></div> 
+        </div> 
         
-        <div class="abuse-box">
-            <span id="f-contact-title" style="color: var(--blue); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;"></span><br>
-            <span class="highlight" style="font-size: 1.3rem; color: #fff; text-shadow: 0 0 10px var(--neon);">trivo.support@proton.me</span>
-        </div>
-    </div>
+        <div class="abuse-box"> 
+            <span id="f-contact-title" style="color: var(--blue); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;"></span><br> 
+            <span class="highlight" style="font-size: 1.3rem; color: #fff; text-shadow: 0 0 10px var(--neon);">trivo.support@proton.me</span> 
+        </div> 
+    </div> 
 
-    <script>
-        const translations = {
-            en: {
-                "txt-layer": "Security Layer: OMNI-REDUNDANT",
-                "node-status": "Node Status: ACTIVE",
-                "txt-main-title": "TRIVO CHAT: PRIVACY ARCHITECTURE",
-                "txt-doc-sub": "Global Standard // v3.6.0 // Effective: April 2026",
+    <script> 
+        const translations = { 
+            en: { 
+                "txt-layer": "Network Layer: NATIVE TOR v3 P2P", 
+                "node-status": "Server Connection: ZERO-SERVER (100% P2P)", 
+                "txt-main-title": "TRIVO CHAT ELITE: PRIVACY & ARCHITECTURE ARCHIVE", 
+                "txt-doc-sub": "Google Play Compliant // v4.0.0 // Effective: August 2026", 
                 
-                "h-sec-biometry": "I. CRYPTOGRAPHIC & BIOMETRIC SHIELD",
-                "grid-biometry": [
-                    ["Local Database Encryption", "All chat logs are secured with AES-256 (SQLCipher) and hardware-backed Android Keystore."],
-                    ["End-to-End Encryption", "All messages are secured using advanced cryptographic protocols (BouncyCastle 1.70). Keys remain only on user devices."],
-                    ["Biometric Security", "Fingerprint and FaceID data never leave the device hardware. We only receive an encrypted token from the system."],
-                    ["Node Decentralization", "Your data flows through independent relay nodes, preventing central surveillance or data harvesting."],
-                    ["Zero-Knowledge Architecture", "Our servers cannot read your messages or see your files. We provide the pipe, you provide the lock."],
-                    ["Quantum-Resistant Protection", "E2EE is active with PQXDH protocol. This ensures protection that cannot be breached even by quantum computers."]
-                ],
+                "h-sec-tor": "I. NATIVE TOR NETWORK & HIDDEN SERVICES", 
+                "grid-tor": [ 
+                    ["Native Tor Daemon", "Android builds run a native background Tor service (Guardian Project engine). All network traffic is routed through encrypted Tor circuits."], 
+                    ["Ephemeral v3 Onion Services", "Each device generates and hosts its own v3 Onion Service. Communication is established directly between peer Onion addresses without central servers."], 
+                    ["Zero Signalling Servers", "No central servers, STUN, or TURN relays control your calls or messages. Connection discovery is 100% peer-to-peer over SOCKS ports."], 
+                    ["Persistent Foreground Service", "To ensure reliable P2P message delivery when backgrounded, a native Android foreground service maintains the Tor bridge connection."] 
+                ], 
 
-                "h-sec-access": "II. DATA ACCESS & PERMISSIONS",
-                "grid-access": [
-                    ["Anonymous Protocol", "No email or phone number required. Your identity is an anonymous ID generated locally on your hardware."],
-                    ["Media & Files", "Access to gallery/files is strictly for user-initiated sharing. We do not browse your files autonomously."],
-                    ["Camera & Microphone", "Sensors are activated ONLY during active recording or calls initiated by the user."],
-                    ["Background Processing", "Background activity is limited to real-time notifications and P2P sync."]
-                ],
+                "h-sec-crypto": "II. CRYPTOGRAPHY & POST-QUANTUM SHIELD", 
+                "grid-crypto": [ 
+                    ["TweetNaCl Encryption", "End-to-end payload encryption is powered by XSalsa20-Poly1305 paired with X25519 key exchange and Ed25519 signatures."], 
+                    ["Post-Quantum Hybrid (PQXDH)", "Messages are reinforced with a Post-Quantum Hybrid layer (PQXDH), adding extra cryptographic entropy to defend against future quantum decryption."], 
+                    ["Digital Signatures", "Every message envelope is signed using Ed25519 keys, preventing message spoofing, tampering, or man-in-the-middle manipulation."], 
+                    ["Local Key Storage", "Private keys are generated locally on device hardware and never transmitted to external services, networks, or cloud providers."] 
+                ], 
 
-                "h-sec-recovery": "III. CLOUD SYNC & DISASTER RECOVERY",
-                "grid-recovery": [
-                    ["Android Auto Backup", "If enabled, only 'identity.json' (ID and contact list) is synced. This is encrypted before being sent to the cloud."],
-                    ["Chat History Policy", "Messages are NOT backed up to Google Drive/Cloud. Deleting the app wipes all local message databases."],
-                    ["Manual Vault Export", "Users can manually export an encrypted '.vault' file in Settings for personal cross-device transfer."]
-                ],
+                "h-sec-biometry": "III. BIOMETRIC HARDWARE SECURITY", 
+                "grid-biometry": [ 
+                    ["Android BiometricPrompt", "Biometric authentication utilizes the native Android Keystore and BiometricPrompt API (Fingerprint / Face Unlock)."], 
+                    ["Zero Biometric Transmission", "Biometric templates never leave the Secure Enclave / TEE of your hardware. Trivo Chat receives only an OS-level confirmation token."], 
+                    ["Cold-Start & Background Lock", "When biometric protection is enabled, the app interface is locked instantly on cold start and when returning from background."] 
+                ], 
 
-                "h-sec-account": "IV. ACCOUNT MANAGEMENT",
-                "grid-account": [
-                    ["Account Deletion", "Users can initiate full account and data deletion directly within the app settings at any time."],
-                    ["Account Deletion Request", "Since no data is stored on our servers, deleting the app or using 'Wipe All' in Settings fulfills the right to be forgotten."],
-                    ["Data Erasure Period", "User metadata is purged from the network immediately or within 24 hours upon request."],
-                    ["Export Responsibility", "Since history isn't stored, users are responsible for manual backups of their own conversations."]
-                ],
+                "h-sec-access": "IV. ANONYMOUS BASE58 IDENTITY & PERMISSIONS", 
+                "grid-access": [ 
+                    ["Base58 Anonymous ID", "No phone number, email, or personal data is required. Identity is represented solely by a cryptographic Base58 ID generated from Ed25519 public key hash."], 
+                    ["Camera & Microphone", "Hardware access to camera and microphone is requested exclusively during active user-initiated media capture or calls."], 
+                    ["Storage & Media", "Local storage permissions are used only to store local message databases (IndexedDB) and user-selected media uploads."] 
+                ], 
 
-                "h-sec-content": "V. CONTENT SAFETY (UGC)",
-                "grid-content": [
-                    ["Automated AI Filtering", "Each report is cross-verified by independent AI safety models (Meta/OpenAI) to prevent false bans."],
-                    ["Reputation Engine", "A hardware ID is restricted only after receiving 5 unique community reports to ensure objectivity."],
-                    ["Hate Speech Zero-Tolerance", "Promotion of violence or discrimination based on race, religion, or gender is strictly prohibited."],
-                    ["Shock Content", "Posting of graphic violence or illegal acts results in an immediate permanent hardware ban."],
-                    ["Support Echo-Bot", "An automated support bot is available to all users to verify connection integrity and report abuses."],
-                    ["In-App Reporting", "Trivo Chat provides 5 specific report categories (Spam, Harassment, Illegal, Violence, Safety) to flag content."],
-                    ["24-Hour Moderation", "Automated verdicts are executed within minutes; manual appeals are reviewed within 24 hours."],
-                    ["Anti-Fraud", "Phishing, scams, or social engineering is a violation of our core protocol."]
-                ],
+                "h-sec-recovery": "V. LOCAL DATABASE & DATA PURGE", 
+                "grid-recovery": [ 
+                    ["Local-Only Database", "All conversations and contacts are stored strictly on the local device using IndexedDB / storage APIs."], 
+                    ["Complete Data Destruction", "The 'Nuke All Data' function permanently wipes IndexedDB, local storage, session storage, and cryptographic keys instantly."], 
+                    ["No Cloud Backups", "We do not host cloud backup servers. Restoring data to a new device is managed manually by exporting local vault files."] 
+                ], 
 
-                "h-sec-kids": "VI. CHILDREN'S PRIVACY",
-                "tag-crit": "STRICT COMPLIANCE",
-                "txt-crit-p": "Service is for users 13+ only (16+ in EU). Any detected minor accounts will be terminated immediately. Behavioral tracking for children is forbidden.",
-                "txt-crit-note": "*Sanctions executed at hardware level; re-entry is blocked for the flagged device ID.",
+                "h-sec-account": "VI. ACCOUNT DELETION & RIGHT TO BE FORGOTTEN", 
+                "grid-account": [ 
+                    ["Instant Deletion", "Because no user accounts or chat records are stored on central servers, uninstalling the app or triggering 'Nuke All Data' fulfills full data erasure."], 
+                    ["No Server Footprint", "There are no central database records to request deletion for; your identity exists only on your device and inside your peer networks."] 
+                ], 
 
-                "h-sec-tech": "VII. TECHNICAL ARCHITECTURE & SDK",
-                "grid-tech": [
-                    ["Trusted SDKs", "We use verified libraries (e.g., Google AdMob) that comply with global security standards."],
-                    ["Transit Encryption", "All data packets are transmitted via secure HTTPS/TLS protocols with end-to-end encryption."],
-                    ["SSL Pinning", "All traffic is protected via SSL Pinning to prevent Man-in-the-Middle (MitM) attacks."],
-                    ["Malware Protection", "Trivo Chat contains no hidden features or spyware. We maintain a clean software architecture."],
-                    ["Relay Nodes", "We are not liable for failures of global decentralized nodes that we do not own."]
-                ],
+                "h-sec-kids": "VII. CHILDREN'S PRIVACY & AGE RATING", 
+                "tag-crit": "STRICT COMPLIANCE", 
+                "txt-crit-p": "Trivo Chat Elite is strictly intended for users aged 13 and older (16+ in the European Economic Area). We do not knowingly collect or target data from children.", 
+                "txt-crit-note": "*Any identified underage usage will result in immediate local app state termination.", 
 
-                "h-sec-global": "VIII. GLOBAL STANDARDS & MONETIZATION",
-                "grid-global": [
-                    ["AdMob Transparency", "Third-party Ad IDs are managed by Google. Review the <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy Policy</a>."],
-                    ["AAID Management", "Users can reset their Advertising ID in Android settings. We follow data minimization principles."],
-                    ["Ad Safety", "Advertisements are filtered to match the 13+ age category and safety standards."],
-                    ["Purchase Transparency", "Financial transactions are processed exclusively through the Google Play Billing System."],
-                    ["EEA Consent", "Users in the EEA have the right to withdraw data consent at any time."],
-                    ["Accessibility", "We strive for compatibility with global accessibility standards (ADA)."]
-                ],
+                "h-sec-tech": "VIII. THIRD-PARTY SDKs & TECHNICAL ARCHITECTURE", 
+                "grid-tech": [ 
+                    ["Capacitor Native Framework", "Built on Capacitor runtime ensuring sandboxed native Android plugin security."], 
+                    ["Barcode Scanning & Share", "Integrated MLKit Barcode Scanning and Capacitor Share operate completely offline on local device hardware."] 
+                ], 
 
-                "h-sec-shield": "IX. LEGAL SHIELD & LIABILITY PROTECTION",
-                "grid-shield": [
-                    ["Class Action Waiver", "You agree to resolve disputes only individually, waiving class-action rights."],
-                    ["Binding Arbitration", "Any legal claim must be resolved through private arbitration, not in a court."],
-                    ["As-Is Warranty", "The service is provided 'As-Is' without any express or implied warranties."],
-                    ["Limitation of Damages", "We are not liable for lost profits, data loss, or specialized financial damages."],
-                    ["Section 230 Protection", "We are a platform provider, not a publisher. We are not liable for user content."],
-                    ["Applicable Law", "This agreement is governed by international standards, regardless of location."],
-                    ["Indemnification", "Users agree to indemnify TRIVO from claims arising from misuse of the service."]
-                ],
+                "h-sec-global": "IX. MONETIZATION & ADMOB TRANSPARENCY", 
+                "grid-global": [ 
+                    ["Google AdMob Integration", "We integrate Google AdMob for banner ads. AdMob may collect device Advertising ID (AAID) in accordance with <a href='https://policies.google.com/privacy' target='_blank'>Google's Privacy Policy</a>."], 
+                    ["Advertising ID Reset", "Users can reset or limit Advertising ID tracking directly inside Android System Settings."], 
+                    ["Google Play Billing", "All financial transactions and premium options are handled exclusively through Google Play Billing."] 
+                ], 
 
-                "txt-google-link": "For more information: <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy & Terms</a>",
-                "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
-                "f-contact-title": "Abuse & Legal Official Contact (ADA Compliant):"
-            },
-            ru: {
-                "txt-layer": "Уровень защиты: ОМНИ-РЕЗЕРВИРОВАНИЕ",
-                "node-status": "Статус узла: АКТИВЕН",
-                "txt-main-title": "TRIVO CHAT: АРХИТЕКТУРА ПРИВАТНОСТИ",
-                "txt-doc-sub": "Глобальный стандарт // v3.6.0 // В силе: Апрель 2026",
+                "h-sec-shield": "X. LEGAL DISCLAIMER & LIMITATION OF LIABILITY", 
+                "grid-shield": [ 
+                    ["As-Is Service", "Trivo Chat Elite is provided 'AS-IS' without express or implied warranties of uptime or connectivity."], 
+                    ["Peer-to-Peer Responsibility", "Users are solely responsible for content transmitted over direct P2P Tor connections."], 
+                    ["Limitation of Liability", "Developers shall not be liable for data loss resulting from device damage, OS clearing, or lost private keys."] 
+                ], 
+
+                "txt-google-link": "For more information on Google service policies: <a href='https://policies.google.com/privacy' target='_blank'>Google Privacy & Terms</a>", 
+                "txt-footer": "CONFIDENTIALITY LEVEL: MAXIMUM // PROTOCOL: TOR-TRV-2026 // © 2026 TRIVO SECURE SYSTEMS", 
+                "f-contact-title": "Abuse & Legal Official Contact:" 
+            }, 
+            ru: { 
+                "txt-layer": "Сетевой уровень: NATIVE TOR v3 P2P", 
+                "node-status": "Подключение к серверам: СЕРВЕРА ОТСУТСТВУЮТ (100% P2P)", 
+                "txt-main-title": "TRIVO CHAT ELITE: АРХИТЕКТУРА И ПОЛИТИКА ПРИВАТНОСТИ", 
+                "txt-doc-sub": "Соответствие Google Play // v4.0.0 // В силе: Август 2026", 
                 
-                "h-sec-biometry": "I. КРИПТОГРАФИЧЕСКИЙ И БИОМЕТРИЧЕСКИЙ ЩИТ",
-                "grid-biometry": [
-                    ["Шифрование базы (SQLCipher)", "Локальная история сообщений защищена AES-256 через SQLCipher и аппаратный Android Keystore."],
-                    ["Сквозное шифрование", "Все сообщения защищены продвинутыми протоколами (BouncyCastle 1.70). Ключи только на устройствах пользователей."],
-                    ["Биометрическая защита", "Данные отпечатков и FaceID никогда не покидают устройство. Мы получаем только зашифрованный токен."],
-                    ["Децентрализация узлов", "Данные проходят через независимые узлы ретрансляции, что исключает централизованную слежку."],
-                    ["Архитектура Zero-Knowledge", "Наши серверы не могут читать сообщения. Мы предоставляем трубу, замок вешаете вы сами."],
-                    ["Квантовая защита", "E2EE активно с PQXDH. Это защита, которую невозможно взломать даже крипто-компьютером."]
-                ],
+                "h-sec-tor": "I. СЕТЬ TOR И СКРЫТЫЕ СЛУЖБЫ (HIDDEN SERVICES)", 
+                "grid-tor": [ 
+                    ["Нативный Tor Фоновый Сервис", "В Android-версии работает встроенная служба Tor (Guardian Project). Весь сетевой трафик маршрутизируется через зашифрованные цепи Tor."], 
+                    ["v3 Onion-Службы Устройств", "Каждое устройство генерирует свою v3 Onion-службу. Связь между пользователями происходит напрямую (Peer-to-Peer) без участия центральных серверов."], 
+                    ["Отсутствие Серверов Сигнализации", "Мы не используем централизованные серверы, STUN или TURN для передачи сообщений и звонков. Поиск узлов идет через локальные SOCKS-порты."], 
+                    ["Foreground Service в Android", "Для гарантированной доставки сообщений в фоновом режиме нативный сервис Android поддерживают стабильное Tor-соединение."] 
+                ], 
 
-                "h-sec-access": "II. ДОСТУП К ДАННЫМ И АНОНИМНОСТЬ",
-                "grid-access": [
-                    ["Анонимный протокол", "Никаких E-mail или номеров телефона. Ваша личность — анонимный ID, созданный локально на устройстве."],
-                    ["Медиа и файлы", "Доступ предоставляется только для отправки данных пользователем. Мы не просматриваем файлы автономно."],
-                    ["Camera & Microphone", "Датчики активируются ТОЛЬКО в момент записи или звонков, инициированных вами."],
-                    ["Фоновая работа", "Фоновая активность ограничена уведомлениями и синхронизацией P2P-узлов."]
-                ],
+                "h-sec-crypto": "II. КРИПТОГРАФИЯ И КВАНТОВЫЙ ЩИТ (PQXDH)", 
+                "grid-crypto": [ 
+                    ["Шифрование TweetNaCl", "Сквозное шифрование данных выполняется алгоритмами XSalsa20-Poly1305, обменом ключами X25519 и подписями Ed25519."], 
+                    ["Гибридный квантовый слой (PQXDH)", "Все сообщения усиливаются квантово-устойчивым слоем (PQXDH), добавляющим криптографическую энтропию против будущих взломов."], 
+                    ["Цифровые подписи Ed25519", "Каждый пакет данных подписывается ключом Ed25519, что исключает подмену отправителя или перехват (MitM)."], 
+                    ["Локальное хранение ключей", "Приватные ключи создаются на устройстве и никогда не передаются в облако или сторонним сервисам."] 
+                ], 
 
-                "h-sec-recovery": "III. СИНХРОНИЗАЦИЯ И ВОССТАНОВЛЕНИЕ",
-                "grid-recovery": [
-                    ["Android Auto Backup", "При включении синхронизируется только 'identity.json' (ID и друзья). Файл шифруется перед отправкой в облако."],
-                    ["История сообщений", "Переписка НЕ копируется в Google Drive/Cloud. Удаление приложения стирает все базы чатов."],
-                    ["Экспорт хранилища", "Пользователь может вручную экспортировать файл '.vault' для переноса данных между устройствами."]
-                ],
+                "h-sec-biometry": "III. БИОМЕТРИЧЕСКАЯ ЗАЩИТА УСТРОЙСТВА", 
+                "grid-biometry": [ 
+                    ["Android BiometricPrompt", "Авторизация использует аппаратный модуль Android Keystore и BiometricPrompt API (Отпечаток пальца / FaceID)."], 
+                    ["Аппаратная изоляция", "Биометрические отпечатки не покидают защищенную область чипа (TEE/Secure Enclave). Приложение получает только результат проверки."], 
+                    ["Блокировка при входе и сворачивании", "При включенной биометрии приложение блокирует интерфейс при холодном запуске и при возврате из фонового режима."] 
+                ], 
 
-                "h-sec-account": "IV. УПРАВЛЕНИЕ АККАУНТОМ",
-                "grid-account": [
-                    ["Удаление аккаунта", "Пользователи могут полностью удалить аккаунт и данные в настройках приложения в любое время."],
-                    ["Запрос на удаление данных", "Так как данные не хранятся на серверах, удаление приложения или кнопка 'Очистить всё' является окончательным актом удаления."],
-                    ["Срок удаления данных", "Метаданные стираются из сети немедленно или в течение 24 часов после запроса."],
-                    ["Ответственность за экспорт", "Мы не храним историю чатов, поэтому пользователь сам отвечает за резервные копии."]
-                ],
+                "h-sec-access": "IV. АНОНИМНЫЙ BASE58 ID И РАЗРЕШЕНИЯ", 
+                "grid-access": [ 
+                    ["Base58 Анонимный ID", "Никаких E-mail или номеров телефонов. Личность представляет собой хэш публичного ключа Ed25519 в формате Base58."], 
+                    ["Камера и Микрофон", "Доступ к датчикам запрашивается исключительно во время активных вызовов или записи медиа, инициированной пользователем."], 
+                    ["Хранилище данных", "Разрешения памяти используются только для записи локальной базы сообщений (IndexedDB) и выбранных файлов."] 
+                ], 
 
-                "h-sec-content": "V. БЕЗОПАСНОСТЬ КОНТЕНТА (UGC)",
-                "grid-content": [
-                    ["AI-Фильтрация", "Каждая жалоба проходит верификацию независимым ИИ (Meta/OpenAI) для защиты от ложных банов."],
-                    ["Система репутации", "Блокировка устройства (Hardware ID) происходит только после 5 уникальных жалоб от сообщества."],
-                    ["Ненависть (Hate Speech)", "Любая пропаганда насилия или дискриминации строго запрещена."],
-                    ["Шок-контент", "Публикация сцен насилия ведет к мгновенной блокировке на уровне железа."],
-                    ["Эхо-бот поддержки", "Встроенный бот 'Support' помогает проверить работу сети и сообщить о нарушениях."],
-                    ["Механизм жалоб", "Trivo Chat включает 5 категорий жалоб (Спам, Угрозы, Криминал, Насилие, Дети) для точной маркировки."],
-                    ["Модерация за 24 часа", "Автоматические вердикты выносятся мгновенно; апелляции рассматриваются вручную за сутки."],
-                    ["Защита от мошенничества", "Фишинг или обман пользователей являются грубым нарушением протокола."]
-                ],
+                "h-sec-recovery": "V. ЛОКАЛЬНАЯ БАЗА ДАННЫХ И УДАЛЕНИЕ", 
+                "grid-recovery": [ 
+                    ["Локальное хранение (IndexedDB)", "Вся история чатов и контакты хранятся исключительно на устройстве пользователя в зашифрованной IndexedDB."], 
+                    ["Полная очистка (Nuke Data)", "Функция 'Стереть всё' моментально удаляет базу IndexedDB, localStorage, sessionStorage и криптографические ключи."], 
+                    ["Отсутствие Облака", "Мы не храним копии ваших переписок на серверах. Перенос данных на новое устройство выполняется вручную."] 
+                ], 
 
-                "h-sec-kids": "VI. ЗАЩИТА ДЕТЕЙ",
-                "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ",
-                "txt-crit-p": "Сервис для лиц 13+ (16+ в ЕС). Аккаунты детей удаляются мгновенно при обнаружении. Поведенческая реклама для детей запрещена.",
-                "txt-crit-note": "*Блокировка на уровне железа; повторный вход для ID устройства технически невозможен.",
+                "h-sec-account": "VI. УДАЛЕНИЕ АККАУНТА И ПРАВО НА ЗАБЫТИЕ", 
+                "grid-account": [ 
+                    ["Мгновенное удаление", "Так как учетные записи не хранятся на серверах, удаление приложения или нажатие 'Стереть всё' является окончательным уничтожением аккаунта."], 
+                    ["Отсутствие следов на сервере", "Вам не нужно отправлять запросы на удаление данных — ваших данных нет ни на одном центральном сервере."] 
+                ], 
 
-                "h-sec-tech": "VII. ТЕХНИЧЕСКАЯ АРХИТЕКТУРА И SDK",
-                "grid-tech": [
-                    ["Проверенные SDK", "Библиотеки (напр. Google AdMob) соблюдают мировые стандарты безопасности."],
-                    ["Шифрование транзита", "Все пакеты передаются через HTTPS/TLS со сквозным шифрованием."],
-                    ["Технология SSL Pinning", "Трафик защищен от перехвата (MitM) через жесткую привязку SSL-сертификатов."],
-                    ["Защита от вредоносов", "Trivo Chat не содержит вирусов или шпионского ПО. Чистая архитектура."],
-                    ["Ответственность за узлы", "Мы не отвечаем за сбои децентрализованных узлов, которые нам не принадлежат."]
-                ],
+                "h-sec-kids": "VII. ЗАЩИТА ДЕТЕЙ И ВОЗРАСТНЫЕ ОГРАНИЧЕНИЯ", 
+                "tag-crit": "СТРОГОЕ СООТВЕТСТВИЕ", 
+                "txt-crit-p": "Trivo Chat Elite предназначен для лиц от 13 лет (от 16 лет в Европейской экономической зоне). Мы не собираем и не обрабатываем данные детей.", 
+                "txt-crit-note": "*Любое использование сервиса несовершеннолетними ведет к немедленному сбросу локального состояния приложения.", 
 
-                "h-sec-global": "VIII. ГЛОБАЛЬНЫЕ СТАНДАРТЫ И МОНЕТИЗАЦИЯ",
-                "grid-global": [
-                    ["Прозрачность AdMob", "Рекламные ID управляются Google. См. <a href='https://policies.google.com/privacy' target='_blank'>Политику конфиденциальности Google</a>."],
-                    ["Управление AAID", "Пользователи могут сбросить рекламный ID в настройках Android."],
-                    ["Безопасность рекламы", "Реклама фильтруется для соответствия категории 13+."],
-                    ["Прозрачность покупок", "Платежи проходят исключительно через систему Google Play."],
-                    ["Согласие EEA (ЕС)", "Пользователи из Европы могут отозвать согласие на обработку данных."],
-                    ["Доступность (ADA)", "Мы стремимся к тому, чтобы интерфейс соответствовал стандартам доступности."]
-                ],
+                "h-sec-tech": "VIII. СТОРОННИЕ SDK И АРХИТЕКТУРА", 
+                "grid-tech": [ 
+                    ["Фреймворк Capacitor", "Приложение собрано на базе Capacitor, обеспечивая изоляцию нативных Android-плагинов."], 
+                    ["Сканер QR и Обмен", "Модули MLKit Barcode Scanning и Capacitor Share работают полностью автономно на самом устройстве."] 
+                ], 
 
-                "h-sec-shield": "IX. ЮРИДИЧЕСКИЙ ЩИТ",
-                "grid-shield": [
-                    ["Отказ от групповых исков", "Вы соглашаетесь решать споры только лично, отказываясь от коллективных исков."],
-                    ["Обязательный арбитраж", "Все претензии решаются через частный арбитраж, а не в суде."],
-                    ["Гарантия «Как есть»", "Сервис предоставляется без каких-либо явных или подразумеваемых гарантий."],
-                    ["Ограничение ущерба", "Мы не отвечаем за упущенную выгоду или потерю данных."],
-                    ["Защита Section 230", "Мы — платформа, а не издатель. Мы не отвечаем за контент пользователей."],
-                    ["Применимое право", "Соглашение регулируется международными нормами."],
-                    ["Возмещение ущерба", "Пользователи обязуются ограждать TRIVO от претензий, возникших из-за нарушения данных условий."]
-                ],
+                "h-sec-global": "IX. МОНЕТИЗАЦИЯ И ПРОЗРАЧНОСТЬ ADMOB", 
+                "grid-global": [ 
+                    ["Интеграция Google AdMob", "Для показа баннеров используется AdMob. AdMob может обрабатывать рекламный ID (AAID) согласно <a href='https://policies.google.com/privacy' target='_blank'>Политике Google</a>."], 
+                    ["Сброс рекламного ID", "Пользователи могут сбросить или отключить персонализацию рекламного ID в настройках Android."], 
+                    ["Покупки Google Play", "Все платежи и варианты подписок обрабатываются строго через стандартную систему Google Play Billing."] 
+                ], 
 
-                "txt-google-link": "Дополнительно: <a href='https://policies.google.com/privacy' target='_blank'>Конфиденциальность Google</a>",
-                "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ TRV-X-2026 // © 2026 TRIVO SECURE SYSTEMS",
-                "f-contact-title": "Официальный юридический контакт (ADA Compliant):"
-            }
-        };
+                "h-sec-shield": "X. ЮРИДИЧЕСКИЙ ЩИТ И ОГРАНИЧЕНИЕ ОТВЕТСТВЕННОСТИ", 
+                "grid-shield": [ 
+                    ["Предоставление «Как есть»", "Trivo Chat Elite предоставляется на условиях 'AS-IS' без каких-либо гарантий непрерывной работы."], 
+                    ["Ответственность P2P", "Пользователи несут персональную ответственность за контент, передаваемый через прямые Tor P2P соединения."], 
+                    ["Отказ от возмещения ущерба", "Разработчики не несут ответственности за утерю данных из-за поломки устройства, сброса ОС или утери приватных ключей."] 
+                ], 
 
-        function setLanguage(lang) {
-            const data = translations[lang];
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+                "txt-google-link": "Дополнительно о правилах Google: <a href='https://policies.google.com/privacy' target='_blank'>Конфиденциальность Google</a>", 
+                "txt-footer": "УРОВЕНЬ КОНФИДЕНЦИАЛЬНОСТИ: МАКСИМУМ // ПРОТОКОЛ: TOR-TRV-2026 // © 2026 TRIVO SECURE SYSTEMS", 
+                "f-contact-title": "Официальный юридический контакт (Abuse & Legal):" 
+            } 
+        }; 
+
+        function setLanguage(lang) { 
+            const data = translations[lang]; 
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en'); 
+            document.getElementById('btn-ru').classList.toggle('active', lang === 'ru'); 
             
-            for (let key in data) {
-                const el = document.getElementById(key);
-                if (el) {
-                    if (key.startsWith('grid')) {
-                        el.innerHTML = data[key].map(i => `<div class="security-card"><strong>${i[0]}</strong><span>${i[1]}</span></div>`).join('');
-                    } else { el.innerHTML = data[key]; }
-                }
-            }
-            localStorage.setItem('trivo_lang', lang);
-        }
+            for (let key in data) { 
+                const el = document.getElementById(key); 
+                if (el) { 
+                    if (key.startsWith('grid')) { 
+                        el.innerHTML = data[key].map(i => `<div class="security-card"><strong>${i[0]}</strong><span>${i[1]}</span></div>`).join(''); 
+                    } else { el.innerHTML = data[key]; } 
+                } 
+            } 
+            localStorage.setItem('trivo_lang', lang); 
+        } 
 
-        window.onload = () => setLanguage(localStorage.getItem('trivo_lang') || 'en');
+        window.onload = () => setLanguage(localStorage.getItem('trivo_lang') || 'en'); 
 
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
-        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-        resize();
-        const alphabet = "10";
-        const fontSize = 16;
-        const rainDrops = Array.from({ length: Math.floor(canvas.width/fontSize) }).fill(1);
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-            for(let i = 0; i < rainDrops.length; i++) {
-                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-                ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize);
-                if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0;
-                rainDrops[i]++;
-            }
-        }
-        setInterval(drawMatrix, 35);
-        window.addEventListener('resize', resize);
-    </script>
-</body>
+        const canvas = document.getElementById('matrix'); 
+        const ctx = canvas.getContext('2d'); 
+        const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }; 
+        resize(); 
+        const alphabet = "10"; 
+        const fontSize = 16; 
+        const rainDrops = Array.from({ length: Math.floor(canvas.width/fontSize) }).fill(1); 
+        function drawMatrix() { 
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'; 
+            ctx.fillRect(0, 0, canvas.width, canvas.height); 
+            ctx.fillStyle = '#0F0'; 
+            ctx.font = fontSize + 'px monospace'; 
+            for(let i = 0; i < rainDrops.length; i++) { 
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length)); 
+                ctx.fillText(text, i*fontSize, rainDrops[i]*fontSize); 
+                if(rainDrops[i]*fontSize > canvas.height && Math.random() > 0.975) rainDrops[i] = 0; 
+                rainDrops[i]++; 
+            } 
+        } 
+        setInterval(drawMatrix, 35); 
+        window.addEventListener('resize', resize); 
+    </script> 
+</body> 
 </html>
